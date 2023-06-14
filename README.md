@@ -17,3 +17,4 @@ Thanks to founder of `thinkingmachine.in` that is Mr.Prafull Kelker who Mentored
 
 ## Credit
 Thanks to God.
+Thanks to All the Creator That I've Used his/her Application Like vim,g++,ubuntu OS and Windows 10 OS
