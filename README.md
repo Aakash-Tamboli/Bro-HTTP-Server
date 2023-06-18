@@ -4,7 +4,7 @@
 here you get to know about `Bro HTTP Server`, which is built on `c++` programming language.
 
 ## Why Bro HTTP Server In C++ ?
-we have `flask in python`, `Express in Node.js` but when we talk about `C++` so there is no such facilites or Program to act as Server In this project I Implemeted Network Programming or Socket Programming in C++.
+we have `ServerSocket Class is Java `,`flask in python`, but when we talk about `C++` so there is no such facilites or Program to act as Server.In this project I Implemeted Network Programming or Socket Programming in C++.
 
 ## Tool I've Used to Develop Bro Server
 1) Vim Text Editor
