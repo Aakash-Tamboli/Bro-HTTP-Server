@@ -1,8 +1,13 @@
 #include<iostream>
 #include<map>
 #include<forward_list>
+#include<arpa/inet.h>
+#include<sys/socket.h>
+#include<unistd.h>
+#include<string.h>
+
 using namespace std;
-// Aakash Who Creat web server
+// Aakash Who Create web server
 class Validator
 {
 private:
@@ -27,14 +32,20 @@ return true;
 
 class Error
 {
+private:
+string error;
 public:
+Error(string error)
+{
+this->error=error;
+}
 bool hasError()
 {
-return false;
+return this->error.length()>0;
 }
 string getError()
 {
-return "";
+return this->error;
 }
 };
 class Request
@@ -103,7 +114,72 @@ this->urlMappings.insert(pair<string,void (*) (Request &,Response &)>(url,callBa
 }
 void listen(int portNumber,void (*callBack)(Error &))
 {
-// do nothing right now
+int serverSocketDescriptor;
+char requestBuffer[4096];
+int requestLength;
+int i;
+
+serverSocketDescriptor=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+if(serverSocketDescriptor<0)
+{
+Error error("Unable to create Socket");
+callBack(error);
+return;
+}
+
+struct sockaddr_in serverSocketInformation;
+serverSocketInformation.sin_family=AF_INET;
+serverSocketInformation.sin_port=htons(portNumber);
+serverSocketInformation.sin_addr.s_addr=htonl(INADDR_ANY);
+int successCode=bind(serverSocketDescriptor,(struct sockaddr *)&serverSocketInformation,sizeof(serverSocketInformation));
+if(successCode<0)
+{
+close(serverSocketDescriptor);
+char a[101];
+sprintf(a,"Unable to bind socket to port: %d",portNumber);
+Error error(a);
+callBack(error);
+return;
+}
+
+successCode=::listen(serverSocketDescriptor,10);
+if(successCode<0)
+{
+close(serverSocketDescriptor);
+Error error("Unable to accept client connection");
+callBack(error);
+return;
+}
+Error error("");
+callBack(error);
+struct sockaddr_in clientSocketInformation;
+socklen_t len=sizeof(clientSocketInformation);
+int clientSocketDescriptor;
+
+while(true)
+{
+clientSocketDescriptor=accept(serverSocketDescriptor,(struct sockaddr *)&clientSocketInformation,&len);
+if(clientSocketDescriptor<0)
+{
+// not yet decided, will write this later on
+}
+requestLength=recv(clientSocketDescriptor,requestBuffer,sizeof(requestBuffer),0);
+
+if(requestLength>0)
+{
+for(i=0;i<requestLength;i++) printf("%c",requestBuffer[i]); // browser will not end null character in the end of string
+const char *response=
+"HTTP/1.1 200 OK\r\n"
+"Connection: close\r\n"
+"Content-Type: text/html\r\n"
+"Content-Length: 143\r\n\r\n"
+"<html><head><title>Thinking Machines</title><head>"
+"<body><h1>Thinking Machines</h1>"
+"<h3>We Teach More Than We Promise to Teach</h3></body></html>";
+send(clientSocketDescriptor,response,strlen(response),0);
+}
+// lots of code will be written here later on
+} // infinit loop ends
 }
 };
 
