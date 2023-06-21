@@ -1,10 +1,18 @@
 #include<iostream>
 #include<map>
 #include<forward_list>
-#include<arpa/inet.h>
-#include<sys/socket.h>
 #include<unistd.h>
 #include<string.h>
+
+#ifdef _WIN32
+#include<windows.h>
+#endif
+
+#ifdef linux
+#include<arpa/inet.h>
+#include<sys/socket.h>
+#endif
+
 
 using namespace std;
 // Aakash Who Create web server
@@ -114,14 +122,23 @@ this->urlMappings.insert(pair<string,void (*) (Request &,Response &)>(url,callBa
 }
 void listen(int portNumber,void (*callBack)(Error &))
 {
+#ifdef _WIN32
+WSADATA wsaData;
+Word ver;
+ver=MAKEWORD(1,1);
+WSAStartup(ver,&wsaData);
+#endif
 int serverSocketDescriptor;
-char requestBuffer[4096];
+char requestBuffer[4097];
 int requestLength;
 int i;
 
 serverSocketDescriptor=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 if(serverSocketDescriptor<0)
 {
+#ifdef _WIN32
+WSACleanup();
+#endif
 Error error("Unable to create Socket");
 callBack(error);
 return;
@@ -135,6 +152,9 @@ int successCode=bind(serverSocketDescriptor,(struct sockaddr *)&serverSocketInfo
 if(successCode<0)
 {
 close(serverSocketDescriptor);
+#ifdef _WIN32
+WSACleanup();
+#endif
 char a[101];
 sprintf(a,"Unable to bind socket to port: %d",portNumber);
 Error error(a);
@@ -146,6 +166,9 @@ successCode=::listen(serverSocketDescriptor,10);
 if(successCode<0)
 {
 close(serverSocketDescriptor);
+#ifdef _WIN32
+WSACleanup();
+#endif
 Error error("Unable to accept client connection");
 callBack(error);
 return;
@@ -153,33 +176,80 @@ return;
 Error error("");
 callBack(error);
 struct sockaddr_in clientSocketInformation;
+#ifdef linux
 socklen_t len=sizeof(clientSocketInformation);
+#endif
+#ifdef _WIN32
+int len=sizeof(clientSocketInformation);
+#endif
+
 int clientSocketDescriptor;
 
 while(true)
 {
 clientSocketDescriptor=accept(serverSocketDescriptor,(struct sockaddr *)&clientSocketInformation,&len);
+
 if(clientSocketDescriptor<0)
 {
-// not yet decided, will write this later on
+// not yet decided, will write this code later on
 }
-requestLength=recv(clientSocketDescriptor,requestBuffer,sizeof(requestBuffer),0);
+forward_list<string> requestBufferDS;
+forward_list<string>::iterator requestBufferDSIterator;
+requestBufferDSIterator=requestBufferDS.before_begin();
+int requestBufferDSSize=0;
+int requestDataCount=0;
 
-if(requestLength>0)
+while(true)
 {
-for(i=0;i<requestLength;i++) printf("%c",requestBuffer[i]); // browser will not end null character in the end of string
-const char *response=
-"HTTP/1.1 200 OK\r\n"
-"Connection: close\r\n"
-"Content-Type: text/html\r\n"
-"Content-Length: 143\r\n\r\n"
-"<html><head><title>Thinking Machines</title><head>"
-"<body><h1>Thinking Machines</h1>"
-"<h3>We Teach More Than We Promise to Teach</h3></body></html>";
-send(clientSocketDescriptor,response,strlen(response),0);
+requestLength=recv(clientSocketDescriptor,requestBuffer,sizeof(requestBuffer)-sizeof(char),0);
+if(requestLength==0) break;
+requestBufferDSIterator=requestBufferDS.insert_after(requestBufferDSIterator,string(requestBuffer));
+requestBufferDSSize++;
+requestDataCount+=requestLength;
 }
-// lots of code will be written here later on
+
+if(requestBufferDSSize>0)
+{
+char *requestData=new char[requestDataCount+1];
+char *p;
+p=requestData;
+const char *q;
+requestBufferDSIterator=requestBufferDS.begin();
+while(requestBufferDSIterator!=requestBufferDS.end())
+{
+q=(*requestBufferDSIterator).c_str();
+while(*q)
+{
+*p=*q;
+p++;
+q++;
+}
+++requestBufferDSIterator;
+}
+
+*p='\0';
+requestBufferDS.clear();
+
+printf("--------- request data begin ------- \n");
+
+printf("%s\n",requestData);
+
+printf("--------- request data end --------- \n");
+
+// the code to parse the request goes here
+delete [] requestData;
+}
+else
+{
+// something if no data was recieved
+}
+close(clientSocketDescriptor);
+// lot of code will be written here later on
 } // infinit loop ends
+
+#ifdef _WIN32
+WSACleanup();
+#endif
 }
 };
 
@@ -237,7 +307,7 @@ if(error.hasError())
 cout<<error.getError()<<endl;
 return;
 }
-cout<<"Bro HTTO Server is Ready to accept Request on port 5050"<<endl;
+cout<<"Bro HTTP Server is Ready to accept Request on port 5050"<<endl;
 });
 return 0;
 }
