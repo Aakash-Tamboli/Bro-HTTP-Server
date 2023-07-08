@@ -237,23 +237,6 @@ printf("%s\n",requestData);
 printf("--------- request data end --------- \n");
 
 // the code to parse the request goes here
-
-// code to extract the url
-// code to look for the url in urlMappings map
-// if not found prepare header with 404 and send back the header
-// if found
-Request request;
-Response response;
-// place a call to the method whose address is the value part
-// in the map, the value part against the key is address of the
-// function that was mapped with the url by Bittu
-// when the call ends
-// create header with 200 OK and set content-Length as per the
-// value of contentLength property in the response object.
-// write header
-// iterate the forward_list named as content on every cycle 
-// write bytes
-
 delete [] requestData;
 }
 else
