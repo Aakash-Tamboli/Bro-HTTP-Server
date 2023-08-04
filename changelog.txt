@@ -1,0 +1,16 @@
+===========================================================
+			Changelogs
+===========================================================
+
+=========
+v1.3
+=========
+~ Introducing FileSystemUtility Class
+~ More method implemented in validator class
+~ try-catch block is necessary to acknowlegment
+~ Implementing functionality related to server static files
+
+
+
+
+===========================================================

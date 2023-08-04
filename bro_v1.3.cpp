@@ -3,6 +3,7 @@
 #include<forward_list>
 #include<unistd.h>
 #include<string.h>
+#include<sys/stat.h>
 
 #ifdef _WIN32
 #include<windows.h>
@@ -16,6 +17,32 @@
 
 using namespace std;
 // Aakash Who Create web server
+
+class FileSystemUtility
+{
+private:
+FileSystemUtility(){}
+public:
+static bool fileExists(const char *path)
+{
+struct stat s;
+int x;
+x=stat(path,&s);
+if(x!=0) return false;
+if(s.st_mode & S_IFDIR) return false;
+return true;
+}
+static bool directoryExists(const char *path)
+{
+struct stat s;
+int x;
+x=stat(path,&s);
+if(x!=0) return false;
+if(s.st_mode & S_IFDIR) return true;
+else return false;
+}
+};
+
 class StringUtility
 {
 private:
@@ -84,8 +111,7 @@ return true;
 }
 static bool isValidPath(string &path)
 {
-// do nothing, right now
-return true;
+return FileSystemUtility::directoryExists(path.c_str());
 }
 static bool isValidURLFormat(string &url)
 {
@@ -216,6 +242,11 @@ if(Validator::isValidPath(staticResourcesFolder))
 {
 this->staticResourcesFolder=staticResourcesFolder;
 }
+else
+{
+string exception=string("Invalid static Resource Folder Path: ")+string(staticResourcesFolder);
+throw exception;
+}
 }
 void get(string url,void (*callBack)(Request &,Response &))
 {
@@ -227,6 +258,58 @@ u.mappedFunction=callBack;
 this->urlMappings.insert(pair<string,URLMapping>(url,u));
 }
 }
+
+bool serveStaticResourcesFolder(int clientSocketDescriptor,const char *requestURI)
+{
+if(this->staticResourcesFolder.length()==0) return false;
+if(!FileSystemUtility::directoryExists(this->staticResourcesFolder.c_str())) return false;
+
+string resourcePath=this->staticResourcesFolder+string(requestURI);
+if(!FileSystemUtility::fileExists(resourcePath.c_str())) return false;
+cout<<"Looking is Resources Folder: "<<resourcePath<<endl;
+FILE *file=fopen(resourcePath.c_str(),"rb");
+if(file==NULL) return false; // if OS does'nt allow to access file for security reasons
+
+long fileSize;
+
+fseek(file,0,SEEK_END);
+
+fileSize=ftell(file);
+
+if(fileSize==0)
+{
+fclose(file);
+return false;
+}
+
+rewind(file); // to move the internal pointer to start of the file
+
+char header[200];
+sprintf(header,"HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: %ld\r\nConnection: close\r\n\r\n",fileSize);
+
+send(clientSocketDescriptor,header,strlen(header),0);
+
+long bytesLeftToRead;
+int bytesToRead;
+
+char buffer[4096];
+
+bytesToRead=4096;
+
+bytesLeftToRead=fileSize;
+
+while(bytesLeftToRead>0)
+{
+if(bytesLeftToRead<bytesToRead) bytesToRead=bytesLeftToRead;
+fread(buffer,bytesToRead,1,file);
+if(feof(file)) break; // it won't happen in our case but its good practice
+send(clientSocketDescriptor,buffer,bytesToRead,0);
+bytesLeftToRead=bytesLeftToRead-bytesToRead;
+} // loop ends
+fclose(file);
+return true;
+}
+
 void listen(int portNumber,void (*callBack)(Error &))
 {
 #ifdef _WIN32
@@ -385,11 +468,14 @@ HttpErrorStatusUtility::sendHttpVersionNotSupportedError(clientSocketDescriptor,
 close(clientSocketDescriptor);
 continue;
 }
-
+cout<<"Request Arrived url is"<<requestURI<<endl;
 auto urlMappingsIterator=urlMappings.find(requestURI);
 if(urlMappingsIterator==urlMappings.end())
 {
+if(!serveStaticResourcesFolder(clientSocketDescriptor,requestURI))
+{
 HttpErrorStatusUtility::sendNotFoundError(clientSocketDescriptor,requestURI);
+}
 close(clientSocketDescriptor);
 continue;
 }
@@ -425,6 +511,8 @@ WSACleanup();
 int main()
 {
 Bro bro;
+try
+{
 bro.setStaticResourcesFolder("Whatever");
 bro.get("/",[](Request &request,Response &response){
 const char *html=R""""(
@@ -476,5 +564,9 @@ return;
 }
 cout<<"Bro HTTP Server is Ready to accept Request on port 5050"<<endl;
 });
+}catch(string &exception)
+{
+cout<<exception<<endl;
+}
 return 0;
 }
