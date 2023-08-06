@@ -10,6 +10,15 @@ v1.3
 ~ try-catch block is necessary to acknowlegment
 ~ Implementing functionality related to server static files
 
+=========
+v1.4
+=========
+~ Introducing BroUtilities class
+~ new property introduced in Bro class for mimeTypes i.e map
+~ From v1.4 MIME Types is automatically generated for response Special Thanks for Apache Team
+~ Planning to serve POST Type request and GET type with query request (Basically Planning How out Server Handle data comming through forms
+
+
 
 
 
