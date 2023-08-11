@@ -19,6 +19,11 @@ v1.4
 ~ Planning to serve POST Type request and GET type with query request (Basically Planning How out Server Handle data comming through forms
 
 
+=========
+v1.5
+=========
+~ Bug Fixed - If staticResourceFolder have .UPPER_CASE_FILE Extension then our code not working its fixed in 1.5
+~ Feature Implemented: When Browser make a query string in GET TYPE Request in context to form then Now Our Web developer can access a data comming from browser
 
 
 
