@@ -26,5 +26,12 @@ v1.5
 ~ Feature Implemented: When Browser make a query string in GET TYPE Request in context to form then Now Our Web developer can access a data comming from browser
 
 
+=========
+v1.6
+=========
+~ Implementing Percentage Encoding for GET Type request, In BroUtilities class Implemented two method i.e isHexChar and decodePercentEncoding
+
+
+
 
 ===========================================================
