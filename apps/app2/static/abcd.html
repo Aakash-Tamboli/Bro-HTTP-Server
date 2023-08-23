@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Form 1</title>
+<script>
+function validate(frm)
+{
+var name=frm.name.value.trim();
+if(name.length==0)
+{
+alert("Name Required");
+frm.name.focus();
+return false;
+}
+var set="ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvxyz .";
+var i;
+i=0;
+while(i<name.length)
+{
+if(set.indexOf(name.charAt(i))==-1)
+{
+alert("Wrong Alphabet you typed");
+frm.name.focus();
+return false;
+}
+i++;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<form action='/aaa' onsubmit='return validate(this)'>
+Name:
+&nbsp;&nbsp;
+<input type='text' id='name' name='name'>
+<button type='submit'>Next</button>
+</form>
+</body>
+</html>

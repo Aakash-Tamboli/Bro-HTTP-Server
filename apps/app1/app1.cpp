@@ -35,6 +35,7 @@ response<<R""""(
 <th>S.No</th>
 <th>RollNumber</th>
 <th>Name</th>
+<th>Gender</th>
 <th>Edit</th>
 <th>Delete</th>
 </tr>
@@ -64,8 +65,8 @@ else
 {
 response<<"<td><img src='images/female.png' width='24' height='24'></td>";
 }
-response<<"<td><a href='editStudent?rollNumber="<<str<<"'>Edit</a></td>";
-response<<"<td><a href='/deleteStudent?rollNumber="<<str<<"'>Delete</a></td>";
+response<<"<td><a href='editStudentForm?rollNumber="<<str<<"'>Edit</a></td>";
+response<<"<td><a href='deleteStudent?rollNumber="<<str<<"'>Delete</a></td>";
 response<<"</tr>";
 }
 fclose(file);
@@ -157,7 +158,7 @@ return true;
 <body>
 <h1>(Student Add Form)</h1>
 )"""";
-char line[101];
+char line[301];
 sprintf(line,"<div style='color:red'> That %d has been alloted</div>",vRollNumber);
 
 response<<line;
@@ -209,7 +210,15 @@ return;
 Student stud;
 stud.rollNumber=atoi(rollNumber.c_str());
 strcpy(stud.name,name.c_str());
-strcpy(&stud.gender,gender.c_str());
+if(gender[0]=='M')
+{
+stud.gender='M';
+}
+else
+{
+stud.gender='F';
+}
+
 file=fopen("student.dat","ab");
 fwrite(&stud,sizeof(Student),1,file);
 fclose(file);
@@ -231,6 +240,175 @@ response<<c;
 response.setContentType("text/html");
 });
 
+bro.get("/deleteStudent",[] (Request &request,Response &response){
+string vRollNumber=request["rollNumber"];
+int rollNumber=atoi(vRollNumber.c_str());
+Student stud;
+char line[201];
+FILE *file,*tmp;
+file=fopen("student.dat","rb");
+tmp=fopen("tmp.tmp","wb");
+while(true)
+{
+fread(&stud,sizeof(Student),1,file);
+if(feof(file)) break;
+if(stud.rollNumber==rollNumber) continue;
+fwrite(&stud,sizeof(Student),1,tmp);
+}
+fclose(file);
+fclose(tmp);
+file=fopen("student.dat","wb");
+tmp=fopen("tmp.tmp","rb");
+while(true)
+{
+fread(&stud,sizeof(Student),1,tmp);
+if(feof(tmp)) break;
+fwrite(&stud,sizeof(Student),1,file);
+}
+fclose(file);
+fclose(tmp);
+response<<R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title> Student Deleted !</title>
+</head>
+<body>
+)"""";
+sprintf(line,"<h1>Student Delete Whose RollNumber is %d</h1>",rollNumber);
+response<<line;
+response<<R""""(
+<a href='/'> HOME </a>
+</body>
+</head>
+)"""";
+response.setContentType("text/html");
+});
+
+bro.get("/editStudentForm",[](Request &request,Response &response){
+string vRollNumber=request["rollNumber"];
+int rollNumber=atoi(vRollNumber.c_str());
+Student stud;
+FILE *file=fopen("student.dat","rb");
+char line[300];
+while(true)
+{
+fread(&stud,sizeof(Student),1,file);
+if(feof(file)) break;
+if(rollNumber==stud.rollNumber)
+{
+break;
+}
+}
+fclose(file);
+response<<R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title> Edit Student</title>
+<script>
+function verify(frm)
+{
+return true;
+}
+</script>
+</head>
+<body>
+<h1> Edit Student </h1>
+<form action='editStudent' onsubmit='return verify(this)'>
+RollNumber:
+&nbsp;
+)"""";
+
+sprintf(line,"<input type='text' id='rollNumber' name='rollNumber' value='%d' readonly><br>",rollNumber);
+response<<line;
+sprintf(line,"Name:&nbsp;<input type='text' id='name' name='name' value='%s'><br>",stud.name);
+response<<line;
+
+if(stud.gender=='M')
+{
+response<<R""""(
+Gender:
+&nbsp;&nbsp;
+<input type='radio' id='gender' name='gender' value='M' checked> Male
+&nbsp;&nbsp;
+<input type='radio' id='gender' name='gender' value='F'> Female
+)"""";
+}
+else
+{
+response<<R""""(
+Gender:
+&nbsp;&nbsp;
+<input type='radio' id='gender' name='gender' value='M'> Male
+&nbsp;&nbsp;&nbsp;
+<input type='radio' id='gender' name='gender' value='F' checked> Female
+)"""";
+}
+response<<R""""(
+<br>
+<br>
+<button type='submit'> Edit It</button>
+</form>
+</body>
+</html>
+)"""";
+response.setContentType("text/html");
+});
+
+
+bro.get("/editStudent",[](Request &request,Response &response){
+string vRollNumber=request["rollNumber"];
+string name=request["name"];
+string gender=request["gender"];
+int rollNumber=atoi(vRollNumber.c_str());
+char line[201];
+Student stud,uStud;
+uStud.rollNumber=rollNumber;
+strcpy(uStud.name,name.c_str());
+if(gender[0]=='M') uStud.gender='M';
+else uStud.gender='F';
+
+FILE *file,*tmp;
+file=fopen("student.dat","rb");
+tmp=fopen("tmp.tmp","wb");
+while(true)
+{
+fread(&stud,sizeof(Student),1,file);
+if(feof(file)) break;
+if(stud.rollNumber==rollNumber) fwrite(&uStud,sizeof(Student),1,tmp);
+else fwrite(&stud,sizeof(Student),1,tmp);
+}
+fclose(file);
+fclose(tmp);
+file=fopen("student.dat","wb");
+tmp=fopen("tmp.tmp","rb");
+while(true)
+{
+fread(&stud,sizeof(Student),1,tmp);
+if(feof(tmp)) break;
+fwrite(&stud,sizeof(Student),1,file);
+}
+fclose(file);
+fclose(tmp);
+
+response<<R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title> Updated !!! </title>
+</head>
+<body>
+<h1> Record Updated</h1>
+<a href='/'> Check Here </a>
+</body>
+</html>
+)"""";
+response.setContentType("text/html");
+});
 
 bro.listen(5050,[](Error &error){
 if(error.hasError())
@@ -246,4 +424,3 @@ cout<<exception<<endl;
 }
 return 0;
 }
-
