@@ -311,6 +311,26 @@ response<<R""""(
 <script>
 function verify(frm)
 {
+var name=frm.name.value.trim();
+if(name.length==0)
+{
+alert('Name Required');
+frm.name.focus();
+return false;
+}
+var set='ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvxyz .';
+var e;
+e=0;
+while(e<name.length)
+{
+if(set.indexOf(name.charAt(e))==-1)
+{
+alert('Name should not contains invalid character');
+frm.name.focus();
+return false;
+}
+e++;
+}
 return true;
 }
 </script>
@@ -321,9 +341,10 @@ return true;
 RollNumber:
 &nbsp;
 )"""";
+response<<vRollNumber<<"<br>";
 
-sprintf(line,"<input type='text' id='rollNumber' name='rollNumber' value='%d' readonly><br>",rollNumber);
-response<<line;
+response<<"<input type='hidden' id='rollNumber' name='rollNumber'"<<" value='"<<vRollNumber<<"'>";
+
 sprintf(line,"Name:&nbsp;<input type='text' id='name' name='name' value='%s'><br>",stud.name);
 response<<line;
 
@@ -370,6 +391,13 @@ uStud.rollNumber=rollNumber;
 strcpy(uStud.name,name.c_str());
 if(gender[0]=='M') uStud.gender='M';
 else uStud.gender='F';
+
+cout<<"Student is Going to edit with the following new info"<<endl;
+cout<<uStud.rollNumber<<endl;
+cout<<uStud.name<<endl;
+cout<<uStud.gender<<endl;
+cout<<"*********************************************"<<endl;
+
 
 FILE *file,*tmp;
 file=fopen("student.dat","rb");

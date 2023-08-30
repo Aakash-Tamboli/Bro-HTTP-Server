@@ -601,6 +601,10 @@ continue;
 }
 char *method,*requestURI,*httpVersion,*dataInRequest;
 requestBuffer[requestLength]='\0';
+//printf("***********************************\n");
+//printf("%s\n",requestBuffer);
+// printf("************************************\n");
+
 // code to parse the first line of the http request start here
 // first line should be REQUOEST_METHOD SPACE URI SPACE HTTPVERSIONCRLF
 method=requestBuffer;
