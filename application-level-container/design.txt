@@ -1,0 +1,11 @@
+So Applicatio Level Container is type of Data structure which have capability to store key-value pair where key is string type and value will be anything.
+
+Inorder to Understand Application Level Container consider the following example
+So When Request Arrives let's say for /aaa and in this request there are some processing work and it stores a name in our Application Level Container,and when aaa mapped method is finished their work name thing still preserved in Container.
+So It means our container is startup at when server gets stated,
+Now after sometime another requst arrived let's say /bbb and in this request we want some processing work related to name thing which is preserved in Conatiner.
+So we extract and proccess It
+
+Conculsion-
+Application Level Container helps to share data between two url withoud headache of session tracking things.
+
