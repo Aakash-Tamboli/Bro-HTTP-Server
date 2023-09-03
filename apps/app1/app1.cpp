@@ -65,8 +65,8 @@ else
 {
 response<<"<td><img src='images/female.png' width='24' height='24'></td>";
 }
-response<<"<td><a href='editStudentForm?rollNumber="<<str<<"'>Edit</a></td>";
-response<<"<td><a href='deleteStudent?rollNumber="<<str<<"'>Delete</a></td>";
+response<<"<td><a href='/editStudentForm?rollNumber="<<str<<"'>Edit</a></td>";
+response<<"<td><a href='/confirmStudentDeletion?rollNumber="<<str<<"'>Delete</a></td>";
 response<<"</tr>";
 }
 fclose(file);
@@ -87,6 +87,102 @@ response<<R""""(
 response.setContentType("text/html");
 });
 
+bro.get("/confirmStudentDeletion",[](Request &request,Response &response){
+char line[201];
+string vRollNumber=request["rollNumber"];
+int rollNumber=atoi(vRollNumber.c_str());
+Student stud;
+FILE *file;
+bool found;
+file=fopen("student.dat","rb");
+if(file==NULL)
+{
+response<<R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Database not found</title>
+</head>
+<body>
+<h1>Database not found</h1>
+<a href='/'>HOME</a>
+</body>
+</html>
+)"""";
+response.setContentType("text/html");
+return;
+}
+found=false;
+while(true)
+{
+fread(&stud,sizeof(Student),1,file);
+if(feof(file)) break;
+if(stud.rollNumber==rollNumber)
+{
+found=true;
+break;
+}
+}
+
+fclose(file);
+
+if(found==false)
+{
+response<<R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>RollNumber not found</title>
+</head>
+<body>
+<h1>RollNumber Not Found</h1>
+<a href='/'>HOME</a>
+</body>
+</html>
+)"""";
+response.setContentType("text/html");
+return;
+}
+
+const char *HTML=R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Confirm Student Deletion</title>
+</head>
+<body>
+<h1>Student (Delete Module)</h1>
+)"""";
+response<<HTML;
+cout<<"Delete Module RollNumber is: "<<rollNumber<<endl;
+sprintf(line,"<form action='/deleteStudent'><input type='hidden' id='rollNumber' name='rollNumber' value='%d'>RollNumber: %d<br>Name: %s<br>",rollNumber,rollNumber,stud.name);
+response<<line;
+if(stud.gender=='M')
+{
+response<<R""""(
+Gender: Male <br>
+<button type='submit'>Delete</button>
+</form>
+</body>
+</html>
+)"""";
+}
+else
+{
+response<<R""""(
+Gender: Female <br>
+<button type='submit'>Delete</button>
+</form>
+</body>
+</html>
+)"""";
+}
+response.setContentType("text/html");
+
+});
 
 bro.get("/addStudent",[](Request &request,Response &response){
 string rollNumber=request["rollNumber"]; // value we pass in subscript it should match with form component
@@ -276,7 +372,7 @@ response<<R""""(
 </head>
 <body>
 )"""";
-sprintf(line,"<h1>Student Delete Whose RollNumber is %d</h1>",rollNumber);
+sprintf(line,"<h1>Student Deleted Whose RollNumber is %d</h1>",rollNumber);
 response<<line;
 response<<R""""(
 <a href='/'> HOME </a>
@@ -391,12 +487,6 @@ uStud.rollNumber=rollNumber;
 strcpy(uStud.name,name.c_str());
 if(gender[0]=='M') uStud.gender='M';
 else uStud.gender='F';
-
-cout<<"Student is Going to edit with the following new info"<<endl;
-cout<<uStud.rollNumber<<endl;
-cout<<uStud.name<<endl;
-cout<<uStud.gender<<endl;
-cout<<"*********************************************"<<endl;
 
 
 FILE *file,*tmp;
