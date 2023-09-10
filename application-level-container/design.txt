@@ -1,5 +1,6 @@
 So Applicatio Level Container is type of Data structure which have capability to store key-value pair where key is string type and value will be anything.
 
+at eg1.cpp
 Inorder to Understand Application Level Container consider the following example
 So When Request Arrives let's say for /aaa and in this request there are some processing work and it stores a name in our Application Level Container,and when aaa mapped method is finished their work name thing still preserved in Container.
 So It means our container is startup at when server gets stated,
@@ -9,3 +10,41 @@ So we extract and proccess It
 Conculsion-
 Application Level Container helps to share data between two url withoud headache of session tracking things.
 
+at eg2.cpp
+2) So here I change design because consider the following scenio.
+let'say say Container class user kept data and retrieve data in following manner
+
+void keepData(Container &ctr)
+{
+char m='A';
+ctr.set("character",m);
+}
+void extractData(Container &ctr)
+{
+int t; // on my machine during the development it will take 4 bytes
+bool success;
+ctr.get("character",&t,&success); 
+/*
+above line causing problem maybe application terminate or unpredicated behaviour on windows machines
+*/
+if(success)
+{
+cout<<t<<endl;
+}
+else
+{
+cout<<"Not Found"<<endl;
+}
+}
+
+Explanation of problem:
+User kept char type data on Container and when they retriving it is on int type.
+Our internal implementation is like we copy no.of bytes on user provided location acc. to size of user provide variable
+
+Now they kept 1 byte
+at retrival it pass variable i.e 4 bytes 
+So when our internal implementation works we copy 1 byte no issue but when we copy three more bytes we are accessing un-reserved that will cause problem
+
+So I introduced Bag concept where it contains two things
+1) a pointer which points to user kept location
+2) size of how many bytes it kept
