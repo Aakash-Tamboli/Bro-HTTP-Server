@@ -31,6 +31,14 @@ v1.6
 =========
 ~ Implementing Percentage Encoding for GET Type request, In BroUtilities class Implemented two method i.e isHexChar and decodePercentEncoding
 
+=========
+v1.7
+=========
+~ Way to adding support for application level container, hence Container class has been introduced in main code base
+~ Creating Application Level Container class which publically inherit Container class, I will adding more feature in application level Container class.
+~ Adding property in Bro class named applicationLevelContainer which type of class ApplicationLevelContainer.
+~ Changing defination of URLMapping struct and introduced abstract class in Main code base 
+
 
 
 

@@ -2,3 +2,8 @@ Do's and Don't s
 1) Web Developer always write default constructor and copy constructor see eg3.cpp to demo.
 2) If Web Developer Wants to change state of object after kept in Container then It Should kept refference of object in Container (eg4.cpp Error Prone Code) (eg5.cpp Solution of Error Prone Code).
 3) If Web Developer kept reference in Container then it should not release memory if they do then Un-predicated output will be occur. (Demo eg6.cpp)
+
+
+
+[Pending]
+4) What If user kept Object in Container where Object internally holds a dynamically allocated data and user provides Destructor, How to deal with it Aakash You need to think how we can deal with this scenerio

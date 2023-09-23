@@ -14,10 +14,102 @@
 #include<arpa/inet.h>
 #include<sys/socket.h>
 #endif
-
-
 using namespace std;
+
 // Aakash Who Create web server
+
+enum __container_operation_failure_reason__ {__KEY_EXISTS__,__KEY_DOES_NOT_EXIST__,__OUT_OF_MEMORY__,__VALUE_SIZE_MISMATCH__};
+
+class Container
+{
+private:
+typedef struct _bag
+{
+void *ptr;
+int size;
+}Bag;
+map<string,Bag> dataSet;
+public:
+template<class T>
+void set(string keyName,T something,bool *success,__container_operation_failure_reason__ *reason)
+{
+auto iterator=dataSet.find(keyName);
+if(iterator!=dataSet.end())
+{
+if(reason) *reason=__KEY_EXISTS__;
+if(success) *success=false;
+return;
+}
+void *ptr;
+ptr=malloc(sizeof(something));
+if(ptr==NULL)
+{
+if(reason) *reason=__OUT_OF_MEMORY__;
+if(success) *success=false;
+return;
+}
+memcpy(ptr,&something,sizeof(something));
+Bag bag;
+bag.ptr=ptr;
+bag.size=sizeof(something);
+dataSet.insert(pair<string,Bag>(keyName,bag));
+if(success) *success=true;
+}
+template<class T>
+void get(string keyName,T anything,bool *success,__container_operation_failure_reason__ *reason)
+{
+auto iterator=dataSet.find(keyName);
+if(iterator==dataSet.end())
+{
+if(reason) *reason=__KEY_DOES_NOT_EXIST__;
+if(success) *success=false;
+return;
+}
+Bag bag;
+bag=iterator->second;
+if(bag.size!=sizeof(*anything))
+{
+if(reason) *reason=__VALUE_SIZE_MISMATCH__;
+if(success) *success=false;
+return;
+}
+memcpy(anything,bag.ptr,sizeof(*anything));
+if(success) *success=true;
+}
+template<class T>
+void remove(string keyName,T anything,bool *success,__container_operation_failure_reason__ *reason)
+{
+auto iterator=dataSet.find(keyName);
+if(iterator==dataSet.end())
+{
+if(reason) *reason=__KEY_DOES_NOT_EXIST__;
+if(success) *success=false;
+return;
+}
+Bag bag;
+bag=iterator->second;
+if(bag.size!=sizeof(anything))
+{
+if(reason) *reason=__VALUE_SIZE_MISMATCH__;
+if(success) *success=false;
+return;
+}
+memcpy(anything,bag.ptr,sizeof(*anything));
+free(bag.ptr);
+if(success) *success=true;
+}
+bool contains(string keyName)
+{
+auto iterator=dataSet.find(keyName);
+return iterator!=dataSet.end();
+}
+};
+
+class ApplicationLevelContainer:public Container
+{
+// right now not yet decided
+};
+
 
 class BroUtilities
 {
@@ -396,11 +488,36 @@ send(clientSocketDescriptor,str.c_str(),str.length(),0);
 
 enum __request_method__{__GET__,__POST__,__PUT__,__DELETE__,__CONNECT__,__TRACE__,__HEAD__,__OPTIONS__};
 
+class Function
+{
+public:
+virtual void doService(Request &,Response &)=0;
+};
+
+class SimpleFunction:public Function
+{
+private:
+void (*mappedFunction)(Request &,Response &);
+public:
+SimpleFunction(void (*mappedFunction)(Request &,Response &))
+{
+this->mappedFunction=mappedFunction;
+}
+void doService(Request &request,Response &response)
+{
+this->mappedFunction(request,response);
+}
+};
+
+
 typedef struct __url__mapping
 {
 __request_method__ requestMethod;
-void (*mappedFunction) (Request &,Response &);
+Function *function;
+//void (*mappedFunction) (Request &,Response &);
 }URLMapping;
+
+
 
 class Bro
 {
@@ -408,6 +525,7 @@ private:
 string staticResourcesFolder;
 map<string,URLMapping> urlMappings;
 map<string,string> mimeTypes;
+ApplicationLevelContainer applicationLevelContainer;
 public:
 Bro()
 {
@@ -434,9 +552,11 @@ void get(string url,void (*callBack)(Request &,Response &))
 {
 if(Validator::isValidURLFormat(url))
 {
+Function *function;
 URLMapping u;
 u.requestMethod=__GET__;
-u.mappedFunction=callBack;
+function=new SimpleFunction(callBack);
+u.function=function;
 this->urlMappings.insert(pair<string,URLMapping>(url,u));
 }
 }
@@ -446,9 +566,11 @@ void post(string url,void (*callBack)(Request &,Response &))
 {
 if(Validator::isValidURLFormat(url))
 {
+Function *function;
 URLMapping u;
 u.requestMethod=__POST__;
-u.mappedFunction=callBack;
+function=new SimpleFunction(callBack);
+u.function=function;
 this->urlMappings.insert(pair<string,URLMapping>(url,u));
 }
 }
@@ -716,7 +838,8 @@ continue;
 // code to parse the header and then the payload if exist ends
 Request request(method,requestURI,httpVersion,dataInRequest);
 Response response;
-urlMapping.mappedFunction(request,response);
+// urlMapping.mappedFunction(request,response);
+urlMapping.function->doService(request,response);
 
 HttpResponseUtility::sendResponse(clientSocketDescriptor,response);
 
@@ -738,6 +861,23 @@ Bro bro;
 try
 {
 bro.setStaticResourcesFolder("Whatever");
+
+bro.get("/",[](Request &request,Response &response){
+response.setContentType("text/html");
+response<<R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title> HOME </title>
+</head>
+<body>
+<h1>God is Great</h1>
+</body>
+</html>
+)"""";
+});
+
 bro.get("/save_test1_data",[](Request &request,Response &response){
 string nnn=request["nm"];
 string ccc=request["ct"];
