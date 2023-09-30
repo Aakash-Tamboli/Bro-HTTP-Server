@@ -44,6 +44,12 @@ v1.8
 =========
 ~ Giving feature of Dependence Injection a.k.a ApplicationLevelContainer, So that web developer can share data between different URLs
 
+=========
+v1.9
+=========
+~ Implementing request forwarding feature in Request Class.
+~ Providing Docs How to forward request do's and don'ts
+
 
 
 
