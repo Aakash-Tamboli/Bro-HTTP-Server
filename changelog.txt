@@ -39,6 +39,11 @@ v1.7
 ~ Adding property in Bro class named applicationLevelContainer which type of class ApplicationLevelContainer.
 ~ Changing defination of URLMapping struct and introduced abstract class in Main code base 
 
+=========
+v1.8
+=========
+~ Giving feature of Dependence Injection a.k.a ApplicationLevelContainer, So that web developer can share data between different URLs
+
 
 
 
