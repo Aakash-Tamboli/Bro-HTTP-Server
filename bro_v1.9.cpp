@@ -931,56 +931,84 @@ WSACleanup();
 
 int main()
 {
-Bro bro;
 try
 {
-bro.setStaticResourcesFolder("Whatever");
+Bro bro;
 
 bro.get("/",[](Request &request,Response &response){
-response.setContentType("text/html");
 response<<R""""(
 <!DOCTYPE HTML>
 <html lang='en'>
 <head>
 <meta charset='utf-8'>
-<title> HOME </title>
+<title>HOME</title>
 </head>
 <body>
 <h1>God is Great</h1>
+<a href='/begin'>Begin</a>
 </body>
 </html>
 )"""";
-});
-
-bro.get("/coolOne",[](Request &request,Response &response){
-cout<<"Function get Excuted for request coolOne and forward to /coolTwo"<<endl;
-request.forwardTo("/coolTwo");
-});
-
-
-bro.get("/coolTwo",[](Request &request,Response &response){
-cout<<"Function get Excuted for request coolTwo and forward to /coolThree"<<endl;
-// request.forwardTo("/coolThree"); user avoid to use directly forwardTo method of request class object see docs
-_forward_to(request,"/coolThree");
-cout<<"***************THIS line should not printed on server window*****************"<<endl;
-});
-
-bro.get("/coolThree",[](Request &request,Response &response){
-cout<<"Function get Excuted for request coolThree and see your browser"<<endl;
 response.setContentType("text/html");
+});
+
+bro.get("/begin",[](Request &request,Response &response){
 response<<R""""(
 <!DOCTYPE HTML>
 <html lang='en'>
 <head>
 <meta charset='utf-8'>
-<title>Cool</title>
+<title>Form</title>
 </head>
 <body>
-<h1>God is Great </h1>
-<h2>Cool things happen</h2>
+<form action='/saveData'>
+Name:&nbsp;
+<input type='text' name='name' id='name'>
+City:&nbsp;
+<input type='text' name='city' id='city'>
+<button type='submit'>Save</button>
+</form>
 </body>
 </html>
 )"""";
+response.setContentType("text/html");
+});
+
+bro.get("/saveData",[](Request &request,Response &response,ApplicationLevelContainer &container){
+cout<<"Data is Processing"<<endl;
+string *name,*city;
+
+name=new string(request["name"]);
+city=new string(request["city"]);
+container.set("name",&name,NULL,NULL);
+container.set("city",&city,NULL,NULL);
+// request Forwarded
+_forward_to(request,"/saveData2");
+});
+
+
+bro.get("/saveData2",[](Request &request,Response &response,ApplicationLevelContainer &container){
+string *nm,*ct;
+container.remove("name",&nm,NULL,NULL);
+container.remove("city",&ct,NULL,NULL);
+cout<<"Name: "<<*nm<<endl;
+cout<<"City: "<<*ct<<endl;
+// Assume here is code for saving data in db
+const char *html=R""""(
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Data Saved</title>
+</head>
+<body>
+<h1>Data Saved</h1>
+<a href='/'>Home</a>
+</body>
+</html>
+)"""";
+response<<html;
+response.setContentType("text/html");
 });
 
 
@@ -992,6 +1020,8 @@ return;
 }
 cout<<"Bro HTTP Server is Ready to accept Request on port 5050"<<endl;
 });
+
+
 }catch(string &exception)
 {
 cout<<exception<<endl;
