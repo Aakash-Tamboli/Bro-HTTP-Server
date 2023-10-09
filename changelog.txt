@@ -50,6 +50,10 @@ v1.9
 ~ Implementing request forwarding feature in Request Class.
 ~ Providing Docs How to forward request do's and don'ts
 
+=========
+v2.0
+=========
+~ Implementing Startup functions feature.
 
 
 
