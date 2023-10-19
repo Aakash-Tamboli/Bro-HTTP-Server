@@ -56,8 +56,12 @@ later on I will add link to use each feature of Bro Server.
 4. Windows 10
 
 
-## Guidance
+## Guidence
 This Project is developed under the guidence of Prafull Kelkar Sir
+
+
+## Shadow Guidence
+God,Mummy,failure,Mishra Sir,Lokesh Laddani Sir, Kirti Dixit Madam, Geetika Singh Madam, Bhupendra Pandiya Sir.
 
 
 ## Credit

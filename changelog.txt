@@ -60,6 +60,14 @@ v2.1
 =========
 ~ Introducing Idea of template Engine inspired from jsp or server side technologies
 
+=========
+v2.2
+=========
+~ Introducing Some More Methods In Template Engine Module
+~ Introducing Some More Methods In Bro Module
+
+
+
 
 
 ===========================================================

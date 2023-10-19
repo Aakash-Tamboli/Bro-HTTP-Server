@@ -45,15 +45,10 @@ while(x<=fileLength)
 m=fgetc(chtmlFile);
 if(m=='$')
 {
-if(virtualStackSize>0)
-{
-virtualStackSize=0;
-}
-else
-{
+// there is no ${living${being}}
+var_name_index=0;
 virtualStackSize=1;
 sp=x;
-}
 }
 else if(m=='{')
 {
