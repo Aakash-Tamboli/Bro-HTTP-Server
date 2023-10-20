@@ -376,9 +376,9 @@ private:
 map<string,string> dataMap;
 string _forwardTo;
 char *method;
-const char *requestURI;
+char *requestURI;
 char *httpVersion;
-Request(char *method,const char *requestURI,char *httpVersion,char *dataInRequest)
+Request(char *method,char *requestURI,char *httpVersion,char *dataInRequest)
 {
 this->method=method;
 this->requestURI=requestURI;
@@ -1234,7 +1234,7 @@ if(urlMappingsIterator==urlMappings.end())
 {
 if(isCHTML(forwardTo.c_str()))
 {
-Request request(method,forwardTo.c_str(),httpVersion,dataInRequest);
+request.forwardTo(string(""));
 processCHTMLResource(clientSocketDescriptor,forwardTo.c_str(),request);
 }
 else if(!serveStaticResourcesFolder(clientSocketDescriptor,forwardTo.c_str()))
