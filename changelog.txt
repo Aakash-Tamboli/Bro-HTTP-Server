@@ -69,8 +69,14 @@ v2.2
 =========
 v2.3
 =========
-~ Giving feature of setting data for dynamic data in .chtml file (only string type right now)
+~ Giving feature of setting data for dynamic data in .chtml file (only string type right now) into request object
 ~ Template Engine is Ready to process any .chtml file and server accordingly 
+
+=========
+v2.4
+=========
+~ Giving feature that web-developer can store object and replace some value against dynamic variable which is written in .chtml file
+~ Giving feature that web-developer can store modern c++ primitives values and replace that values against dynamic variable which is written in .chtml file
 
 
 

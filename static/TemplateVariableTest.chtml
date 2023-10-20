@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Bulb Information</title>
+</head>
+<body>
+Bulb &emsp;<b>${bulb}</b>
+A &emsp;<b>${aa}</b><br>
+B &emsp;<b>${bb}</b><br>
+C &emsp;<b>${cc}</b><br>
+D &emsp;<b>${dd}</b><br>
+E &emsp;<b>${ee}</b><br>
+F &emsp;<b>${ff}</b><br>
+G &emsp;<b>${gg}</b><br>
+H &emsp;<b>${hh}</b><br>
+I &emsp;<b>${ii}</b><br>
+J &emsp;<b>${jj}</b><br>
+K &emsp;<b>${kk}</b><br>
+L &emsp;<b>${ll}</b><br>
+M &emsp;<b>${mm}</b><br>
+N &emsp;<b>${nn}</b><br>
+</body>
+</html>

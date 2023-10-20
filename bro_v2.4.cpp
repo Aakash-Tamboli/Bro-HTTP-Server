@@ -26,6 +26,12 @@ return;
 
 // Aakash Who Create web server
 
+class Stringifyable
+{
+public:
+virtual string stringify()=0;
+};
+
 enum __container_operation_failure_reason__ {__KEY_EXISTS__,__KEY_DOES_NOT_EXIST__,__OUT_OF_MEMORY__,__VALUE_SIZE_MISMATCH__};
 
 class Container
@@ -444,19 +450,98 @@ ptr2=ptr1;
 friend class Bro;
 map<string,string> varMap;
 public:
-void set(string key,string value)
+void setCHTMLVariable(string key,string value)
 {
 varMap.insert(pair<string,string>(key,value));
 }
-bool contains(string name)
+void setCHTMLVariable(string key,Stringifyable *stringifyable)
 {
-return varMap.find(name)!=varMap.end();
+string value;
+if(stringifyable==NULL) value="";
+else value=stringifyable->stringify();
+varMap.insert(pair<string,string>(key,value));
 }
-string get(string name)
+void setCHTMLVariable(string key,const char *value)
+{
+string data;
+if(value==NULL) data="";
+else data=value;
+varMap.insert(pair<string,string>(key,data));
+}
+void setCHTMLVariable(string key,short value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,unsigned short int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,unsigned int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,long int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,unsigned long int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,long long int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,unsigned long long int value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,float value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,double value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,long double value)
+{
+varMap.insert(pair<string,string>(key,to_string(value)));
+}
+void setCHTMLVariable(string key,char value)
+{
+string data;
+data+=value;
+varMap.insert(pair<string,string>(key,data));
+}
+void setCHTMLVariable(string key,unsigned char value)
+{
+string data;
+data+=value;
+varMap.insert(pair<string,string>(key,data));
+}
+void setCHTMLVariable(string key,bool value)
+{
+string data;
+if(value==true) data="true";
+else data="false";
+varMap.insert(pair<string,string>(key,data));
+}
+
+string getCHTMLVariable(string name)
 {
 auto a=varMap.find(name);
 if(a==varMap.end()) return string("");
 return a->second;
+}
+
+bool isCHTMLVariablecontains(string name)
+{
+return varMap.find(name)!=varMap.end();
 }
 
 string operator[](string key)
@@ -711,7 +796,7 @@ virtualStackSize=0;
 sp=0;
 ep=0;
 x=0;
-while(x<=fileLength)
+while(x<fileLength)
 {
 m=fgetc(chtmlFile);
 if(m=='$')
@@ -836,7 +921,7 @@ while(1)
 fread(&vmdRecord,sizeof(struct VMD),1,vmdFile);
 if(feof(vmdFile)) break;
 responseSize=responseSize-(vmdRecord.end_position-vmdRecord.start_position)+1;
-data=request.get(vmdRecord.var_name);
+data=request.getCHTMLVariable(vmdRecord.var_name);
 responseSize=responseSize+data.length();
 }// loop ends
 cout<<"Response Size is: "<<responseSize<<endl;
@@ -868,9 +953,10 @@ tmpBytesLeftToRead=tmpBytesLeftToRead-bytesToRead;
 }// inner loop ends
 fread(buffer,(vmdRecord.end_position-vmdRecord.start_position)+1,1,chtmlFile);
 bytesProcessedFromFile=bytesProcessedFromFile+(vmdRecord.end_position-vmdRecord.start_position)+1;
-if(request.contains(vmdRecord.var_name))
+if(request.isCHTMLVariablecontains(vmdRecord.var_name))
 {
-data=request.get(vmdRecord.var_name);
+data=request.getCHTMLVariable(vmdRecord.var_name);
+cout<<"Extract and dispatch to client: "<<data<<endl;
 send(clientSocketDescriptor,data.c_str(),data.length(),0);
 }
 } // outer loop ends
@@ -1345,6 +1431,34 @@ WSACleanup();
 };
 
 // Bittu [ The Web Application Developer User of Bro Web Server ]
+class Bulb:public Stringifyable
+{
+private:
+int wattage;
+int price;
+public:
+void setWattage(int wattage)
+{
+this->wattage=wattage;
+}
+void setPrice(int price)
+{
+this->price=price;
+}
+int getWattage()
+{
+return this->wattage;
+}
+int getPrice()
+{
+return this->price;
+}
+string stringify()
+{
+return string("Wattage: ")+to_string(this->wattage)+string(", Price: ")+to_string(this->price);
+}
+};
+
 
 int main()
 {
@@ -1353,55 +1467,41 @@ try
 Bro bro;
 bro.setStaticResourcesFolder("static");
 
-bro.get("/",[](Request &request,Response &response){
-response<<R""""(
-<!DOCTYPE HTML>
-<html lang='en'>
-<head>
-<meta charset='utf-8'>
-<title>HOME</title>
-</head>
-<body>
-<h1>God is Great</h1>
-<a href='/begin'>Begin</a>
-</body>
-</html>
-)"""";
-response.setContentType("text/html");
+bro.get("/getTemplateVariableValue",[](Request &request,Response &response){
+Bulb bulb;
+bulb.setWattage(60);
+bulb.setPrice(100);
+short int a=10;
+unsigned int b=20;
+int c=30;
+unsigned int d=40;
+long int e=50;
+unsigned long int f=60;
+long long int g=70;
+unsigned long long int h=80;
+float i=763.44f;
+double j=534.3423;
+long double k=7734.32;
+char l='A';
+unsigned m='B';
+bool n=true;
+request.setCHTMLVariable("bulb",&bulb);
+request.setCHTMLVariable("aa",a);
+request.setCHTMLVariable("bb",b);
+request.setCHTMLVariable("cc",c);
+request.setCHTMLVariable("dd",d);
+request.setCHTMLVariable("ee",e);
+request.setCHTMLVariable("ff",f);
+request.setCHTMLVariable("gg",g);
+request.setCHTMLVariable("hh",h);
+request.setCHTMLVariable("ii",i);
+request.setCHTMLVariable("jj",j);
+request.setCHTMLVariable("kk",k);
+request.setCHTMLVariable("ll",l);
+request.setCHTMLVariable("mm",m);
+request.setCHTMLVariable("nn",n);
+_forward_to(request,"/TemplateVariableTest.chtml");
 });
-
-bro.get("/begin",[](Request &request,Response &response){
-response<<R""""(
-<!DOCTYPE HTML>
-<html lang='en'>
-<head>
-<meta charset='utf-8'>
-<title>Form</title>
-</head>
-<body>
-<form action='/saveData'>
-Name:&nbsp;
-<input type='text' name='name' id='name'>
-City:&nbsp;
-<input type='text' name='city' id='city'>
-<button type='submit'>Save</button>
-</form>
-</body>
-</html>
-)"""";
-response.setContentType("text/html");
-});
-
-bro.get("/saveData",[](Request &request,Response &response){
-string name=request["name"];
-string city=request["city"];
-cout<<"Name: "<<name<<endl;
-cout<<"City: "<<city<<endl;
-request.set("name",name);
-request.set("city",city);
-_forward_to(request,string("/displayData.chtml"));
-});
-
 
 bro.listen(5050,[](Error &error){
 if(error.hasError())
