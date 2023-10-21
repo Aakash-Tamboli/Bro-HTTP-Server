@@ -83,6 +83,13 @@ v2.5
 =========
 ~ Giving feature of request scope in bro Server 
 
+=========
+v2.6
+=========
+~ Implementation Starts for Cookie(Session Tracking) or Development start for giving feature of Handling Cookies
+
+
+
 
 
 
