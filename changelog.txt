@@ -88,6 +88,13 @@ v2.6
 =========
 ~ Implementation Starts for Cookie(Session Tracking) or Development start for giving feature of Handling Cookies
 
+=========
+v2.7
+=========
+~ Impementing continue for Cookies
+
+
+
 
 
 
