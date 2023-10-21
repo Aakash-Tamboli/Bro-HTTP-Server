@@ -78,6 +78,12 @@ v2.4
 ~ Giving feature that web-developer can store object and replace some value against dynamic variable which is written in .chtml file
 ~ Giving feature that web-developer can store modern c++ primitives values and replace that values against dynamic variable which is written in .chtml file
 
+=========
+v2.5
+=========
+~ Giving feature of request scope in bro Server 
+
+
 
 
 
