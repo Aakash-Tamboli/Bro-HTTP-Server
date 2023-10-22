@@ -93,6 +93,12 @@ v2.7
 =========
 ~ Impementing continue for Cookies
 
+=========
+v2.8
+=========
+~ Provided facility to handle cookies attributes
+
+
 
 
 
