@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbro.a CMakeFiles/bro.dir/bro.cpp.o CMakeFiles/bro.dir/bro_utilities.cpp.o CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o
+/usr/bin/ranlib libbro.a
