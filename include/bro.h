@@ -22,6 +22,16 @@ using namespace std;
 #define _forward_to(request,url) \
 request.forwardTo(url); \
 return;
+
+
+#ifdef _WIN32
+const char *PATH_SEPRATOR="\\";
+#endif
+#ifdef linux
+const char *PATH_SEPRATOR="/";
+#endif
+
+
 enum __container_operation_failure_reason__ {__KEY_EXISTS__,__KEY_DOES_NOT_EXIST__,__OUT_OF_MEMORY__,__VALUE_SIZE_MISMATCH__};
 enum __request_method__{__GET__,__POST__,__PUT__,__DELETE__,__CONNECT__,__TRACE__,__HEAD__,__OPTIONS__};
 struct __URL__mapping;

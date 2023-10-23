@@ -69,24 +69,10 @@ include CMakeFiles/bro.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/bro.dir/flags.make
 
-CMakeFiles/bro.dir/bro.cpp.o: CMakeFiles/bro.dir/flags.make
-CMakeFiles/bro.dir/bro.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro.cpp
-CMakeFiles/bro.dir/bro.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bro.dir/bro.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro.cpp.o -MF CMakeFiles/bro.dir/bro.cpp.o.d -o CMakeFiles/bro.dir/bro.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro.cpp
-
-CMakeFiles/bro.dir/bro.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bro.dir/bro.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aakash/Bro-HTTP-Server/src/bro.cpp > CMakeFiles/bro.dir/bro.cpp.i
-
-CMakeFiles/bro.dir/bro.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro.cpp -o CMakeFiles/bro.dir/bro.cpp.s
-
 CMakeFiles/bro.dir/bro_string_utility.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_string_utility.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_string_utility.cpp
 CMakeFiles/bro.dir/bro_string_utility.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bro.dir/bro_string_utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bro.dir/bro_string_utility.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_string_utility.cpp.o -MF CMakeFiles/bro.dir/bro_string_utility.cpp.o.d -o CMakeFiles/bro.dir/bro_string_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_string_utility.cpp
 
 CMakeFiles/bro.dir/bro_string_utility.cpp.i: cmake_force
@@ -100,7 +86,7 @@ CMakeFiles/bro.dir/bro_string_utility.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_file_system_utility.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_file_system_utility.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_file_system_utility.cpp
 CMakeFiles/bro.dir/bro_file_system_utility.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bro.dir/bro_file_system_utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bro.dir/bro_file_system_utility.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_file_system_utility.cpp.o -MF CMakeFiles/bro.dir/bro_file_system_utility.cpp.o.d -o CMakeFiles/bro.dir/bro_file_system_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_file_system_utility.cpp
 
 CMakeFiles/bro.dir/bro_file_system_utility.cpp.i: cmake_force
@@ -114,7 +100,7 @@ CMakeFiles/bro.dir/bro_file_system_utility.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_utilities.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_utilities.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_utilities.cpp
 CMakeFiles/bro.dir/bro_utilities.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/bro.dir/bro_utilities.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bro.dir/bro_utilities.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_utilities.cpp.o -MF CMakeFiles/bro.dir/bro_utilities.cpp.o.d -o CMakeFiles/bro.dir/bro_utilities.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_utilities.cpp
 
 CMakeFiles/bro.dir/bro_utilities.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/bro.dir/bro_utilities.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_gmt_date_time.cpp
 CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o -MF CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o.d -o CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_gmt_date_time.cpp
 
 CMakeFiles/bro.dir/bro_gmt_date_time.cpp.i: cmake_force
@@ -142,7 +128,7 @@ CMakeFiles/bro.dir/bro_gmt_date_time.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_validator.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_validator.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_validator.cpp
 CMakeFiles/bro.dir/bro_validator.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/bro.dir/bro_validator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/bro.dir/bro_validator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_validator.cpp.o -MF CMakeFiles/bro.dir/bro_validator.cpp.o.d -o CMakeFiles/bro.dir/bro_validator.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_validator.cpp
 
 CMakeFiles/bro.dir/bro_validator.cpp.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/bro.dir/bro_validator.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_http_error_status_utility.cpp
 CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o -MF CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o.d -o CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_http_error_status_utility.cpp
 
 CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_error.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_error.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_error.cpp
 CMakeFiles/bro.dir/bro_error.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/bro.dir/bro_error.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/bro.dir/bro_error.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_error.cpp.o -MF CMakeFiles/bro.dir/bro_error.cpp.o.d -o CMakeFiles/bro.dir/bro_error.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_error.cpp
 
 CMakeFiles/bro.dir/bro_error.cpp.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/bro.dir/bro_error.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_cookie.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_cookie.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_cookie.cpp
 CMakeFiles/bro.dir/bro_cookie.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/bro.dir/bro_cookie.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/bro.dir/bro_cookie.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_cookie.cpp.o -MF CMakeFiles/bro.dir/bro_cookie.cpp.o.d -o CMakeFiles/bro.dir/bro_cookie.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_cookie.cpp
 
 CMakeFiles/bro.dir/bro_cookie.cpp.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/bro.dir/bro_cookie.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_header_utility.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_header_utility.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_header_utility.cpp
 CMakeFiles/bro.dir/bro_header_utility.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/bro.dir/bro_header_utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/bro.dir/bro_header_utility.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_header_utility.cpp.o -MF CMakeFiles/bro.dir/bro_header_utility.cpp.o.d -o CMakeFiles/bro.dir/bro_header_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_header_utility.cpp
 
 CMakeFiles/bro.dir/bro_header_utility.cpp.i: cmake_force
@@ -212,7 +198,7 @@ CMakeFiles/bro.dir/bro_header_utility.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_request.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_request.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_request.cpp
 CMakeFiles/bro.dir/bro_request.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/bro.dir/bro_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/bro.dir/bro_request.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_request.cpp.o -MF CMakeFiles/bro.dir/bro_request.cpp.o.d -o CMakeFiles/bro.dir/bro_request.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_request.cpp
 
 CMakeFiles/bro.dir/bro_request.cpp.i: cmake_force
@@ -226,7 +212,7 @@ CMakeFiles/bro.dir/bro_request.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_response.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_response.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_response.cpp
 CMakeFiles/bro.dir/bro_response.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/bro.dir/bro_response.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/bro.dir/bro_response.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_response.cpp.o -MF CMakeFiles/bro.dir/bro_response.cpp.o.d -o CMakeFiles/bro.dir/bro_response.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_response.cpp
 
 CMakeFiles/bro.dir/bro_response.cpp.i: cmake_force
@@ -240,7 +226,7 @@ CMakeFiles/bro.dir/bro_response.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_http_response_utility.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_http_response_utility.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_http_response_utility.cpp
 CMakeFiles/bro.dir/bro_http_response_utility.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/bro.dir/bro_http_response_utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/bro.dir/bro_http_response_utility.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_http_response_utility.cpp.o -MF CMakeFiles/bro.dir/bro_http_response_utility.cpp.o.d -o CMakeFiles/bro.dir/bro_http_response_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_http_response_utility.cpp
 
 CMakeFiles/bro.dir/bro_http_response_utility.cpp.i: cmake_force
@@ -254,7 +240,7 @@ CMakeFiles/bro.dir/bro_http_response_utility.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_simple_function.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_simple_function.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_simple_function.cpp
 CMakeFiles/bro.dir/bro_simple_function.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/bro.dir/bro_simple_function.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/bro.dir/bro_simple_function.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_simple_function.cpp.o -MF CMakeFiles/bro.dir/bro_simple_function.cpp.o.d -o CMakeFiles/bro.dir/bro_simple_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_simple_function.cpp
 
 CMakeFiles/bro.dir/bro_simple_function.cpp.i: cmake_force
@@ -268,7 +254,7 @@ CMakeFiles/bro.dir/bro_simple_function.cpp.s: cmake_force
 CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o: CMakeFiles/bro.dir/flags.make
 CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_function.cpp
 CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o -MF CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o.d -o CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_function.cpp
 
 CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.i: cmake_force
@@ -279,9 +265,78 @@ CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.s: cma
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_function.cpp -o CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.s
 
+CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o: CMakeFiles/bro.dir/flags.make
+CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_simple_startup_function.cpp
+CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o -MF CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o.d -o CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_simple_startup_function.cpp
+
+CMakeFiles/bro.dir/bro_simple_startup_function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bro.dir/bro_simple_startup_function.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aakash/Bro-HTTP-Server/src/bro_simple_startup_function.cpp > CMakeFiles/bro.dir/bro_simple_startup_function.cpp.i
+
+CMakeFiles/bro.dir/bro_simple_startup_function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro_simple_startup_function.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro_simple_startup_function.cpp -o CMakeFiles/bro.dir/bro_simple_startup_function.cpp.s
+
+CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o: CMakeFiles/bro.dir/flags.make
+CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_startup_function.cpp
+CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o -MF CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o.d -o CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_startup_function.cpp
+
+CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_startup_function.cpp > CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.i
+
+CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_startup_function.cpp -o CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.s
+
+CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o: CMakeFiles/bro.dir/flags.make
+CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp
+CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o -MF CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o.d -o CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp
+
+CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp > CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.i
+
+CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp -o CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.s
+
+CMakeFiles/bro.dir/bro_template_engine.cpp.o: CMakeFiles/bro.dir/flags.make
+CMakeFiles/bro.dir/bro_template_engine.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_template_engine.cpp
+CMakeFiles/bro.dir/bro_template_engine.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/bro.dir/bro_template_engine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_template_engine.cpp.o -MF CMakeFiles/bro.dir/bro_template_engine.cpp.o.d -o CMakeFiles/bro.dir/bro_template_engine.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_template_engine.cpp
+
+CMakeFiles/bro.dir/bro_template_engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bro.dir/bro_template_engine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aakash/Bro-HTTP-Server/src/bro_template_engine.cpp > CMakeFiles/bro.dir/bro_template_engine.cpp.i
+
+CMakeFiles/bro.dir/bro_template_engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro_template_engine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro_template_engine.cpp -o CMakeFiles/bro.dir/bro_template_engine.cpp.s
+
+CMakeFiles/bro.dir/bro_server.cpp.o: CMakeFiles/bro.dir/flags.make
+CMakeFiles/bro.dir/bro_server.cpp.o: /home/aakash/Bro-HTTP-Server/src/bro_server.cpp
+CMakeFiles/bro.dir/bro_server.cpp.o: CMakeFiles/bro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/bro.dir/bro_server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bro.dir/bro_server.cpp.o -MF CMakeFiles/bro.dir/bro_server.cpp.o.d -o CMakeFiles/bro.dir/bro_server.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_server.cpp
+
+CMakeFiles/bro.dir/bro_server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bro.dir/bro_server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aakash/Bro-HTTP-Server/src/bro_server.cpp > CMakeFiles/bro.dir/bro_server.cpp.i
+
+CMakeFiles/bro.dir/bro_server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bro.dir/bro_server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aakash/Bro-HTTP-Server/src/bro_server.cpp -o CMakeFiles/bro.dir/bro_server.cpp.s
+
 # Object files for target bro
 bro_OBJECTS = \
-"CMakeFiles/bro.dir/bro.cpp.o" \
 "CMakeFiles/bro.dir/bro_string_utility.cpp.o" \
 "CMakeFiles/bro.dir/bro_file_system_utility.cpp.o" \
 "CMakeFiles/bro.dir/bro_utilities.cpp.o" \
@@ -295,12 +350,16 @@ bro_OBJECTS = \
 "CMakeFiles/bro.dir/bro_response.cpp.o" \
 "CMakeFiles/bro.dir/bro_http_response_utility.cpp.o" \
 "CMakeFiles/bro.dir/bro_simple_function.cpp.o" \
-"CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o"
+"CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o" \
+"CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o" \
+"CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o" \
+"CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o" \
+"CMakeFiles/bro.dir/bro_template_engine.cpp.o" \
+"CMakeFiles/bro.dir/bro_server.cpp.o"
 
 # External object files for target bro
 bro_EXTERNAL_OBJECTS =
 
-libbro.a: CMakeFiles/bro.dir/bro.cpp.o
 libbro.a: CMakeFiles/bro.dir/bro_string_utility.cpp.o
 libbro.a: CMakeFiles/bro.dir/bro_file_system_utility.cpp.o
 libbro.a: CMakeFiles/bro.dir/bro_utilities.cpp.o
@@ -315,9 +374,14 @@ libbro.a: CMakeFiles/bro.dir/bro_response.cpp.o
 libbro.a: CMakeFiles/bro.dir/bro_http_response_utility.cpp.o
 libbro.a: CMakeFiles/bro.dir/bro_simple_function.cpp.o
 libbro.a: CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o
+libbro.a: CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o
+libbro.a: CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o
+libbro.a: CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o
+libbro.a: CMakeFiles/bro.dir/bro_template_engine.cpp.o
+libbro.a: CMakeFiles/bro.dir/bro_server.cpp.o
 libbro.a: CMakeFiles/bro.dir/build.make
 libbro.a: CMakeFiles/bro.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library libbro.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aakash/Bro-HTTP-Server/lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX static library libbro.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/bro.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bro.dir/link.txt --verbose=$(VERBOSE)
 

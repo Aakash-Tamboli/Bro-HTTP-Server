@@ -129,30 +129,6 @@ bro/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/build
 .PHONY : bro/fast
 
-bro.o: bro.cpp.o
-.PHONY : bro.o
-
-# target to build an object file
-bro.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro.cpp.o
-.PHONY : bro.cpp.o
-
-bro.i: bro.cpp.i
-.PHONY : bro.i
-
-# target to preprocess a source file
-bro.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro.cpp.i
-.PHONY : bro.cpp.i
-
-bro.s: bro.cpp.s
-.PHONY : bro.s
-
-# target to generate assembly for a file
-bro.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro.cpp.s
-.PHONY : bro.cpp.s
-
 bro_application_level_container_dependent_function.o: bro_application_level_container_dependent_function.cpp.o
 .PHONY : bro_application_level_container_dependent_function.o
 
@@ -176,6 +152,30 @@ bro_application_level_container_dependent_function.s: bro_application_level_cont
 bro_application_level_container_dependent_function.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.s
 .PHONY : bro_application_level_container_dependent_function.cpp.s
+
+bro_application_level_container_dependent_startup_function.o: bro_application_level_container_dependent_startup_function.cpp.o
+.PHONY : bro_application_level_container_dependent_startup_function.o
+
+# target to build an object file
+bro_application_level_container_dependent_startup_function.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o
+.PHONY : bro_application_level_container_dependent_startup_function.cpp.o
+
+bro_application_level_container_dependent_startup_function.i: bro_application_level_container_dependent_startup_function.cpp.i
+.PHONY : bro_application_level_container_dependent_startup_function.i
+
+# target to preprocess a source file
+bro_application_level_container_dependent_startup_function.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.i
+.PHONY : bro_application_level_container_dependent_startup_function.cpp.i
+
+bro_application_level_container_dependent_startup_function.s: bro_application_level_container_dependent_startup_function.cpp.s
+.PHONY : bro_application_level_container_dependent_startup_function.s
+
+# target to generate assembly for a file
+bro_application_level_container_dependent_startup_function.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.s
+.PHONY : bro_application_level_container_dependent_startup_function.cpp.s
 
 bro_cookie.o: bro_cookie.cpp.o
 .PHONY : bro_cookie.o
@@ -393,6 +393,30 @@ bro_response.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_response.cpp.s
 .PHONY : bro_response.cpp.s
 
+bro_server.o: bro_server.cpp.o
+.PHONY : bro_server.o
+
+# target to build an object file
+bro_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_server.cpp.o
+.PHONY : bro_server.cpp.o
+
+bro_server.i: bro_server.cpp.i
+.PHONY : bro_server.i
+
+# target to preprocess a source file
+bro_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_server.cpp.i
+.PHONY : bro_server.cpp.i
+
+bro_server.s: bro_server.cpp.s
+.PHONY : bro_server.s
+
+# target to generate assembly for a file
+bro_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_server.cpp.s
+.PHONY : bro_server.cpp.s
+
 bro_simple_function.o: bro_simple_function.cpp.o
 .PHONY : bro_simple_function.o
 
@@ -417,6 +441,54 @@ bro_simple_function.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_simple_function.cpp.s
 .PHONY : bro_simple_function.cpp.s
 
+bro_simple_startup_function.o: bro_simple_startup_function.cpp.o
+.PHONY : bro_simple_startup_function.o
+
+# target to build an object file
+bro_simple_startup_function.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o
+.PHONY : bro_simple_startup_function.cpp.o
+
+bro_simple_startup_function.i: bro_simple_startup_function.cpp.i
+.PHONY : bro_simple_startup_function.i
+
+# target to preprocess a source file
+bro_simple_startup_function.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_simple_startup_function.cpp.i
+.PHONY : bro_simple_startup_function.cpp.i
+
+bro_simple_startup_function.s: bro_simple_startup_function.cpp.s
+.PHONY : bro_simple_startup_function.s
+
+# target to generate assembly for a file
+bro_simple_startup_function.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_simple_startup_function.cpp.s
+.PHONY : bro_simple_startup_function.cpp.s
+
+bro_startup_function_comparator.o: bro_startup_function_comparator.cpp.o
+.PHONY : bro_startup_function_comparator.o
+
+# target to build an object file
+bro_startup_function_comparator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o
+.PHONY : bro_startup_function_comparator.cpp.o
+
+bro_startup_function_comparator.i: bro_startup_function_comparator.cpp.i
+.PHONY : bro_startup_function_comparator.i
+
+# target to preprocess a source file
+bro_startup_function_comparator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.i
+.PHONY : bro_startup_function_comparator.cpp.i
+
+bro_startup_function_comparator.s: bro_startup_function_comparator.cpp.s
+.PHONY : bro_startup_function_comparator.s
+
+# target to generate assembly for a file
+bro_startup_function_comparator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.s
+.PHONY : bro_startup_function_comparator.cpp.s
+
 bro_string_utility.o: bro_string_utility.cpp.o
 .PHONY : bro_string_utility.o
 
@@ -440,6 +512,30 @@ bro_string_utility.s: bro_string_utility.cpp.s
 bro_string_utility.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_string_utility.cpp.s
 .PHONY : bro_string_utility.cpp.s
+
+bro_template_engine.o: bro_template_engine.cpp.o
+.PHONY : bro_template_engine.o
+
+# target to build an object file
+bro_template_engine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_template_engine.cpp.o
+.PHONY : bro_template_engine.cpp.o
+
+bro_template_engine.i: bro_template_engine.cpp.i
+.PHONY : bro_template_engine.i
+
+# target to preprocess a source file
+bro_template_engine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_template_engine.cpp.i
+.PHONY : bro_template_engine.cpp.i
+
+bro_template_engine.s: bro_template_engine.cpp.s
+.PHONY : bro_template_engine.s
+
+# target to generate assembly for a file
+bro_template_engine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_template_engine.cpp.s
+.PHONY : bro_template_engine.cpp.s
 
 bro_utilities.o: bro_utilities.cpp.o
 .PHONY : bro_utilities.o
@@ -498,12 +594,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bro"
-	@echo "... bro.o"
-	@echo "... bro.i"
-	@echo "... bro.s"
 	@echo "... bro_application_level_container_dependent_function.o"
 	@echo "... bro_application_level_container_dependent_function.i"
 	@echo "... bro_application_level_container_dependent_function.s"
+	@echo "... bro_application_level_container_dependent_startup_function.o"
+	@echo "... bro_application_level_container_dependent_startup_function.i"
+	@echo "... bro_application_level_container_dependent_startup_function.s"
 	@echo "... bro_cookie.o"
 	@echo "... bro_cookie.i"
 	@echo "... bro_cookie.s"
@@ -531,12 +627,24 @@ help:
 	@echo "... bro_response.o"
 	@echo "... bro_response.i"
 	@echo "... bro_response.s"
+	@echo "... bro_server.o"
+	@echo "... bro_server.i"
+	@echo "... bro_server.s"
 	@echo "... bro_simple_function.o"
 	@echo "... bro_simple_function.i"
 	@echo "... bro_simple_function.s"
+	@echo "... bro_simple_startup_function.o"
+	@echo "... bro_simple_startup_function.i"
+	@echo "... bro_simple_startup_function.s"
+	@echo "... bro_startup_function_comparator.o"
+	@echo "... bro_startup_function_comparator.i"
+	@echo "... bro_startup_function_comparator.s"
 	@echo "... bro_string_utility.o"
 	@echo "... bro_string_utility.i"
 	@echo "... bro_string_utility.s"
+	@echo "... bro_template_engine.o"
+	@echo "... bro_template_engine.i"
+	@echo "... bro_template_engine.s"
 	@echo "... bro_utilities.o"
 	@echo "... bro_utilities.i"
 	@echo "... bro_utilities.s"
