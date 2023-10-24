@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/bro.dir/bro_http_response_utility.cpp.o.d"
   "CMakeFiles/bro.dir/bro_request.cpp.o"
   "CMakeFiles/bro.dir/bro_request.cpp.o.d"
+  "CMakeFiles/bro.dir/bro_request_processor.cpp.o"
+  "CMakeFiles/bro.dir/bro_request_processor.cpp.o.d"
   "CMakeFiles/bro.dir/bro_response.cpp.o"
   "CMakeFiles/bro.dir/bro_response.cpp.o.d"
   "CMakeFiles/bro.dir/bro_simple_function.cpp.o"

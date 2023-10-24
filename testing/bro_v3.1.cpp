@@ -30,7 +30,14 @@ return;
 
 // Forward Declaration for just code will run
 class Bro;
-void requestProcessor(int,Bro *);
+class BroThreadWrapper
+{
+public:
+thread *th;
+bool hasCompleted;
+BroThreadWrapper *next;
+};
+void requestProcessor(int,Bro *,BroThreadWrapper *p);
 
 // forward Declaration ends
 
@@ -897,7 +904,7 @@ void getCookieNames(list<string> &cookieNames)
 {
 
 }
-friend void requestProcessor(int clientSocketDescriptor,Bro *bro);
+friend void requestProcessor(int clientSocketDescriptor,Bro *bro,BroThreadWrapper *p);
 };
 
 class Response
@@ -1625,24 +1632,87 @@ int len=sizeof(clientSocketInformation);
 #endif
 
 int clientSocketDescriptor;
-
+BroThreadWrapper *p;
+BroThreadWrapper *p1,*p2;
+BroThreadWrapper *head=NULL;
 while(true)
 {
 clientSocketDescriptor=accept(serverSocketDescriptor,(struct sockaddr *)&clientSocketInformation,&len);
-new thread(requestProcessor,clientSocketDescriptor,this);
+p=new BroThreadWrapper;
+p->hasCompleted=false;
+p->th=new thread(requestProcessor,clientSocketDescriptor,this,p);
+p->next=head;
+head=p;
+p1=head;
+while(p1!=NULL)
+{
+if(p1->hasCompleted)
+{
+p1->th->join(); // if minute execute is remain then it will be executed
+if(p1==head)
+{
+head=head->next;
+delete p1->th;
+delete p1;
+p1=head;
+continue;
+}
+else
+{
+p2->next=p1->next;
+delete p1->th;
+delete p1;
+p1=p2->next;
+continue;
+}
+}
+p2=p1;
+p1=p1->next;
+} // loop to scan completed thread ends
 // lot of code will be written here later on
 } // infinit loop ends
+
+// When Bro Server gets shutdown then
+
+while(true)
+{
+p1=head;
+while(p1!=NULL)
+{
+if(p1->hasCompleted)
+{
+p1->th->join(); // if minute execute is remain then it will be executed
+if(p1==head)
+{
+head=head->next;
+delete p1->th;
+delete p1;
+p1=head;
+continue;
+}
+else
+{
+p2->next=p1->next;
+delete p1->th;
+delete p1;
+p1=p2->next;
+continue;
+}
+}
+p2=p1;
+p1=p1->next;
+} 
+} // releasing memory
+
 #ifdef _WIN32
 WSACleanup();
 #endif
 }
-friend void requestProcessor(int clientSocketDescriptor,Bro *bro);
+friend void requestProcessor(int clientSocketDescriptor,Bro *bro,BroThreadWrapper *p);
 };
 
-
-
 // start: Later I will change
-void requestProcessor(int clientSocketDescriptor,Bro *bro)
+void requestProcessor(int clientSocketDescriptor,Bro *bro,BroThreadWrapper *p)
 {
 char requestBuffer[4097];
 int requestLength;
@@ -1652,6 +1722,7 @@ requestLength=recv(clientSocketDescriptor,requestBuffer,sizeof(requestBuffer)-si
 if(requestLength==0 || requestLength==-1)
 {
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 char *method,*requestURI,*httpVersion,*dataInRequest;
@@ -1668,6 +1739,7 @@ if(requestBuffer[i]=='\0')
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 requestBuffer[i]='\0';
@@ -1676,6 +1748,7 @@ if(requestBuffer[i]==' ' || requestBuffer[i]=='\0')
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 StringUtility::toLowerCase(method);
@@ -1690,6 +1763,7 @@ strcmp(method,"connect")==0))
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 requestURI=requestBuffer+i;
@@ -1698,6 +1772,7 @@ if(requestBuffer[i]=='\0')
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 requestBuffer[i]='\0';
@@ -1706,6 +1781,7 @@ if(requestBuffer[i]==' ' || requestBuffer[i]=='\0')
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 httpVersion=requestBuffer+i;
@@ -1714,6 +1790,7 @@ if(requestBuffer[i]=='\0')
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 
@@ -1721,6 +1798,7 @@ if(requestBuffer[i]=='\r' && requestBuffer[i+1]!='\n')
 {
 HttpErrorStatusUtility::sendBadRequestError(clientSocketDescriptor);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 
@@ -1739,6 +1817,7 @@ if(strcmp(httpVersion,"http/1.1")!=0)
 {
 HttpErrorStatusUtility::sendHttpVersionNotSupportedError(clientSocketDescriptor,httpVersion);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 int headerStartIndex=i;
@@ -1766,6 +1845,7 @@ bro->processCHTMLResource(clientSocketDescriptor,requestURI,request);
 HttpErrorStatusUtility::sendNotFoundError(clientSocketDescriptor,requestURI);
 }
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 
@@ -1775,6 +1855,7 @@ if(urlMapping.requestMethod==__GET__ && strcmp(method,"get")!=0)
 {
 HttpErrorStatusUtility::sendMethodNotAllowedError(clientSocketDescriptor,requestURI);
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 return;
 }
 // code to parse the header and then the payload if exist starts
@@ -1817,6 +1898,7 @@ break;
 request.forwardTo(string("")); //resting forwardTo property.
 } // loop ends 
 close(clientSocketDescriptor);
+p->hasCompleted=true;
 // lot of code will be written here later on
 } // function ends
 // Ends: Later I will change

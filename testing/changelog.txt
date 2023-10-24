@@ -105,6 +105,12 @@ v3.0
 ~ Implementing Multi-Threading in Server but dirtiest possible way later on I will optimize it
 
 
+=========
+v3.1
+=========
+~ Implementing Optimized Approach in Multi Threading
+
+
 
 
 

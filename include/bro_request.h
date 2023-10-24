@@ -6,6 +6,9 @@
 #include<bro_stringifyable.h>
 #include<bro_cookie.h>
 #include<bro_utilities.h>
+#include<bro_thread_wrapper.h>
+
+class Bro;
 class Request:public Container
 {
 private:
@@ -46,5 +49,6 @@ string getCookieValue(string);
 void getCookies(list<Cookie> &);
 void getCookieNames(list<string> &);
 friend class Bro;
+friend void requestProcessor(int,Bro *,BroThreadWrapper *p);
 };
 #endif

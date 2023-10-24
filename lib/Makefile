@@ -441,6 +441,30 @@ bro_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_request.cpp.s
 .PHONY : bro_request.cpp.s
 
+bro_request_processor.o: bro_request_processor.cpp.o
+.PHONY : bro_request_processor.o
+
+# target to build an object file
+bro_request_processor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_request_processor.cpp.o
+.PHONY : bro_request_processor.cpp.o
+
+bro_request_processor.i: bro_request_processor.cpp.i
+.PHONY : bro_request_processor.i
+
+# target to preprocess a source file
+bro_request_processor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_request_processor.cpp.i
+.PHONY : bro_request_processor.cpp.i
+
+bro_request_processor.s: bro_request_processor.cpp.s
+.PHONY : bro_request_processor.s
+
+# target to generate assembly for a file
+bro_request_processor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bro.dir/build.make CMakeFiles/bro.dir/bro_request_processor.cpp.s
+.PHONY : bro_request_processor.cpp.s
+
 bro_response.o: bro_response.cpp.o
 .PHONY : bro_response.o
 
@@ -681,6 +705,9 @@ help:
 	@echo "... bro_request.o"
 	@echo "... bro_request.i"
 	@echo "... bro_request.s"
+	@echo "... bro_request_processor.o"
+	@echo "... bro_request_processor.i"
+	@echo "... bro_request_processor.s"
 	@echo "... bro_response.o"
 	@echo "... bro_response.i"
 	@echo "... bro_response.s"

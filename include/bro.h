@@ -48,6 +48,7 @@ void post(string,void (*callBack)(Request &,Response &));
 void processCHTMLResource(int,const char *,Request &);
 bool serveStaticResourcesFolder(int,const char *);
 void listen(int,void (*callBack)(Error &));
+friend void requestProcessor(int clientSocketDescriptor,Bro *bro,BroThreadWrapper *p);
 };
 
 #endif
