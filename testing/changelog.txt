@@ -99,6 +99,10 @@ v2.8
 ~ Provided facility to handle cookies attributes
 
 
+=========
+v3.0
+=========
+~ Implementing Multi-Threading in Server but dirtiest possible way later on I will optimize it
 
 
 
