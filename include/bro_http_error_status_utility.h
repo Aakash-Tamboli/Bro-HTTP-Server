@@ -1,6 +1,6 @@
 #ifndef __BRO_HTTP_ERROR_STATUS_UTILITY__
 #define __BRO_HTTP_ERROR_STATUS_UTILITY__ 9
-#include<bro.h>
+#include<bro_global.h>
 
 class HttpErrorStatusUtility
 {

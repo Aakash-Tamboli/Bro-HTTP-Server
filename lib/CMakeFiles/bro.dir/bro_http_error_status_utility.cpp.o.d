@@ -2,7 +2,7 @@ CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o: \
  /home/aakash/Bro-HTTP-Server/src/bro_http_error_status_utility.cpp \
  /usr/include/stdc-predef.h \
  /home/aakash/Bro-HTTP-Server/src/../include/bro_http_error_status_utility.h \
- /home/aakash/Bro-HTTP-Server/src/../include/bro.h \
+ /home/aakash/Bro-HTTP-Server/src/../include/bro_global.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

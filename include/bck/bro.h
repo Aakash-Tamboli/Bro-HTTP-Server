@@ -1,5 +1,5 @@
-#ifndef __BRO_SERVER__
-#define __BRO_SERVER__ 40
+#ifndef __BRO__
+#define __BRO__ 40
 
 #include<bro_application_level_container_dependent_function.h>
 #include<bro_application_level_container_dependent_startup_function.h>

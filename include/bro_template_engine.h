@@ -1,10 +1,9 @@
 #ifndef __BRO_TEMPLATE_ENGINE__
 #define __BRO_TEMPLATE_ENGINE__ 40
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_request.h>
 #include<bro_file_system_utility.h>
-
 class TemplateEngine
 {
 private:

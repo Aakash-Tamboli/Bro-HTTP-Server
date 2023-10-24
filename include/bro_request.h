@@ -1,7 +1,7 @@
 #ifndef __BRO_REQUEST__
 #define __BRO_REQUEST__ 14
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_container.h>
 #include<bro_stringifyable.h>
 #include<bro_cookie.h>

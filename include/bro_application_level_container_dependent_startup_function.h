@@ -1,7 +1,7 @@
 #ifndef __BRO_APPLICATION_LEVEL_CONTAINER_DEPENDENT_STARTUP_FUNCTION__
 #define __BRO_APPLICATION_LEVEL_CONTAINER_DEPENDENT_STARTUP_FUNCTION__ 25
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_application_level_container.h>
 #include<bro_startup_function.h>
 

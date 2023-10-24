@@ -1,6 +1,6 @@
 #ifndef __BRO_STARTUP_FUNCTION__
 #define __BRO_STARTUP_FUNCTION__ 18
-#include<bro.h>
+#include<bro_global.h>
 class StartupFunction
 {
 public:

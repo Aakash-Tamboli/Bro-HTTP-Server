@@ -1,7 +1,7 @@
 #ifndef __BRO_UTILITIES__
 #define __BRO_UTILITIES__ 6
 
-#include<bro.h>
+#include<bro_global.h>
 
 class BroUtilities
 {

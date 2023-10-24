@@ -1,7 +1,7 @@
 #ifndef __BRO_GMTDATETIME__
 #define __BRO_GMTDATETIME__ 3
 
-#include<bro.h>
+#include<bro_global.h>
 class GMTDateTime
 {
 private:

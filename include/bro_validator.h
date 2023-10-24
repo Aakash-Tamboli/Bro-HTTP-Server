@@ -1,7 +1,7 @@
 #ifndef __BRO_VALIDATOR__
 #define __BRO_VALIDATOR__ 10
 
-#include<bro.h>
+#include<bro_global.h>
 
 class Validator
 {

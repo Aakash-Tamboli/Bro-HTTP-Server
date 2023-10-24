@@ -1,7 +1,7 @@
 #ifndef __BRO_COOKIE__
 #define __BRO_COOKIE__ 12
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_gmt_date_time.h>
 
 typedef enum _cookie_sam_site_flag

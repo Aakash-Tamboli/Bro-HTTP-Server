@@ -1,7 +1,7 @@
 #ifndef __BRO_RESPONSE__
 #define __BRO_RESPONSE__ 15
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_cookie.h>
 #include<bro_validator.h>
 class Response

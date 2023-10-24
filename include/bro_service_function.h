@@ -1,7 +1,7 @@
 #ifndef __BRO_SERVICE_FUNCTION
 #define __BRO_SERVICE_FUNCTION 17
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_request.h>
 #include<bro_response.h>
 

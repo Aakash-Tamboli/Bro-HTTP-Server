@@ -1,4 +1,5 @@
 #include<bro_template_engine.h>
+
 void TemplateEngine::createVMDFileName(const char *chtmlFileName,char *vmdFileName)
 {
 char *dotPtr;

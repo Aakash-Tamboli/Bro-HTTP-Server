@@ -1,7 +1,7 @@
 #ifndef __BRO_SIMPLE_FUNCTION__
 #define __BRO_SIMPLE_FUNCTION__ 20
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_service_function.h>
 #include<bro_request.h>
 #include<bro_response.h>

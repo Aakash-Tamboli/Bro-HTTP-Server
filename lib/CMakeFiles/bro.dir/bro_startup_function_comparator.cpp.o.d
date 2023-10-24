@@ -2,7 +2,7 @@ CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o: \
  /home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp \
  /usr/include/stdc-predef.h \
  /home/aakash/Bro-HTTP-Server/src/../include/bro_startup_function_comparator.h \
- /home/aakash/Bro-HTTP-Server/src/../include/bro.h \
+ /home/aakash/Bro-HTTP-Server/src/../include/bro_global.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

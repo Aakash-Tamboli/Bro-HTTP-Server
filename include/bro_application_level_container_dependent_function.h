@@ -1,7 +1,7 @@
 #ifndef __BRO_APPLICATION_LEVEL_CONTAINER_DEPENDENT_FUNCTION
 #define __BRO_APPLICATION_LEVEL_CONTAINER_DEPENDENT_FUNCTION 21
 
-#include<bro.h>
+#include<bro_global.h>
 #include<bro_request.h>
 #include<bro_response.h>
 #include<bro_application_level_container.h>

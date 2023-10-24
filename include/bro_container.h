@@ -1,6 +1,6 @@
 #ifndef __BRO_CONTAINER__
 #define __BRO_CONTAINER__ 4
-#include<bro.h>
+#include<bro_global.h>
 
 class Container 
 {
@@ -90,11 +90,5 @@ memcpy(anything,bag.ptr,sizeof(*anything));
 free(bag.ptr);
 if(success) *success=true;
 }
-bool Container::contains(string keyName)
-{
-auto iterator=dataSet.find(keyName);
-return iterator!=dataSet.end();
-}
-
 
 #endif

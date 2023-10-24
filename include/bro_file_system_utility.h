@@ -1,6 +1,6 @@
 #ifndef __BRO_FILE_SYSTEM_UTILITY__
 #define __BRO_FILE_SYSTEM_UTILITY__ 7
-#include<bro.h>
+#include<bro_global.h>
 
 class FileSystemUtility
 {

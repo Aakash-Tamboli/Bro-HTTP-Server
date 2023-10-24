@@ -1,7 +1,7 @@
 #ifndef __BRO_STRING_UTILITY__
 #define __BRO_STRING_UTILITY__ 8
 
-#include<bro.h>
+#include<bro_global.h>
 
 class StringUtility
 {
