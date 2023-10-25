@@ -9,20 +9,19 @@ So In My view Engineeing is about to build, But Before Building First we have to
 
 To deploy your Web-App using Bro-Server then folder structure must be followed like:
 
-1) Your web_app should be reside in apps folder.
-2) your web_app should contains bro-data folder which is already provided.
+* Your web_app should contains bro-data and vmd_files folder which is already provided.
 
 ```
-Bro-HTTP-Server -- > apps/your_web_app
+Bro-HTTP-Server -- > Web_Developer_Docs
                         |---> bro-data (Dependencies)
+			|---> vmd_files (Dependecies)
 ```
 
 
 ## Demo
 
-
 ```c
-#include<iostream>
+#include<bro.h>
 using namespace std;
 int main()
 {
@@ -30,6 +29,15 @@ int main()
     {
         Bro bro;
         bro.setStaticResourcesFolder("static");
+	bro.get("/url_pattern",[](Request &request,Response &response){
+		
+
+	});
+	bro.get("/url_pattern",[](Request &request,Response &response,ApplicationLevelContainer &container){
+		
+		
+	});
+
         bro.listen(5050,[](Error &error){
             if(error.hasError())
             {
@@ -45,8 +53,17 @@ int main()
     return 0;
 }
 ```
+## To Compile
+I Assume You are in Web_Developer_Docs Folder, over-there bro-data and vmd_files is considered as dependencies folder so don't tempared or delete.
+the 
+`g++ fileName.cpp -o fileName.out -I ../include -L ../lib -l bro`
+
+## Feature
+Currenly Our Bro Server Provides Cookies,Dependieces Injection (Application Level container), Request Scope level conatiner,GET type request,... later on Will add more features
+
+
 ## Examples
-later on I will add link to use each feature of Bro Server.
+Kindly Reffer Docs Folder, for specfic feature
 
 
 ## Tool I've Used to Develop Bro Server
@@ -56,5 +73,5 @@ later on I will add link to use each feature of Bro Server.
 4. Windows 10
 
 ## Credit
-Thanks to God. Thanks to All the Creator That I've Used his/her Application Like vim,g++,ubuntu OS,Tomcat and Windows 10 OS Thanks to Prafull Sir
+Thanks to God. Thanks to All the Creator That I've Used his/her Application Like vim,g++,ubuntu OS,Tomcat and Windows 10 OS.
 
