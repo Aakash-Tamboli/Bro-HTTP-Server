@@ -9,7 +9,6 @@ private:
     Validator();
 
 public:
-    static bool isValidMIMEType(string &);
     static bool isValidPath(string &);
     static bool isValidURLFormat(string &);
 };

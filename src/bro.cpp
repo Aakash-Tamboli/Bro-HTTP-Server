@@ -30,7 +30,7 @@ Bro::Bro()
 {
     BroUtilities::loadMIMETypes(mimeTypes);
     if (mimeTypes.size() == 0)
-        throw string("bro-data folder has been temperaed with");
+        throw string("bro-data folder has been tempared with");
 }
 Bro::~Bro()
 {
@@ -88,35 +88,22 @@ void Bro::get(string url, void (*callBack)(Request &, Response &, ApplicationLev
     }
 }
 
-void Bro::post(string url, void (*callBack)(Request &, Response &))
-{
-    if (Validator::isValidURLFormat(url))
-    {
-        ServiceFunction *serviceFunction;
-        URLMapping u;
-        u.requestMethod = __POST__;
-        serviceFunction = new SimpleFunction(callBack);
-        u.function = serviceFunction;
-        this->urlMappings.insert(pair<string, URLMapping>(url, u));
-    }
-}
-
 void Bro::processCHTMLResource(int clientSocketDescriptor, const char *requestURI, Request &request)
 {
     if (this->staticResourcesFolder.length() == 0)
     {
-        // send Back 404
+        HttpErrorStatusUtility::sendNotFoundError(clientSocketDescriptor,requestURI);
         return;
     }
     if (!FileSystemUtility::directoryExists(this->staticResourcesFolder.c_str()))
     {
-        // send Back 404
+        HttpErrorStatusUtility::sendNotFoundError(clientSocketDescriptor,requestURI);
         return;
     }
     string resourcePath = this->staticResourcesFolder + string(requestURI);
     if (!FileSystemUtility::fileExists(resourcePath.c_str()))
     {
-        // send Back 404
+        HttpErrorStatusUtility::sendNotFoundError(clientSocketDescriptor,requestURI);
         return;
     }
     TemplateEngine::processCHTMLFile(resourcePath.c_str(), request, clientSocketDescriptor);

@@ -10,10 +10,7 @@ Response::~Response()
 }
 void Response::setContentType(string contentType)
 {
-    if (Validator::isValidMIMEType(contentType))
-    {
         this->contentType = contentType;
-    }
 }
 void Response::addCookie(Cookie &cookie)
 {

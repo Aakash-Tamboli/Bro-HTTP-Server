@@ -1,13 +1,9 @@
 #include <bro_validator.h>
 #include <bro_file_system_utility.h>
+#include <bro.h>
 
 Validator::Validator()
 {
-}
-bool Validator::isValidMIMEType(string &mimeType)
-{
-    // do nothing, right now
-    return true;
 }
 bool Validator::isValidPath(string &path)
 {
@@ -15,6 +11,9 @@ bool Validator::isValidPath(string &path)
 }
 bool Validator::isValidURLFormat(string &url)
 {
-    // do nothing, right now
+	if(url[0]!='/' || url[1]=='/')
+	{
+		return false;
+	}
     return true;
 }

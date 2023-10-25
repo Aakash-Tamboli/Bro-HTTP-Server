@@ -9,9 +9,10 @@ private:
 
 public:
     static void sendBadRequestError(int);
-    static void sendHttpVersionNotSupportedError(int, char *);
-    static void sendNotFoundError(int, char *);
-    static void sendMethodNotAllowedError(int, char *);
+    static void sendHttpVersionNotSupportedError(int,const char *);
+    static void sendNotFoundError(int,const  char *);
+    static void sendMethodNotAllowedError(int,const char *);
+    static void sendInternalError(int,const char *);
 };
 
 #endif

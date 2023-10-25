@@ -1,8 +1,3 @@
-## For Aakash
-So This Project Requirs Lot's of patience, So I stopped, But When you create HTTP Server in Java You Should Reffer this Doc and Make 
-
-
-
 # Bro Server DOCUMENTATION
 
 ## Overview
@@ -59,15 +54,6 @@ later on I will add link to use each feature of Bro Server.
 2. G++ (7.5.0) (above C++17) Or Greater
 3. Ubuntu Operating System
 4. Windows 10
-
-
-## Guidence
-This Project is developed under the guidence of Prafull Kelkar Sir
-
-
-## Shadow Guidence
-God,Mummy,failure,Mishra Sir,Lokesh Laddani Sir, Kirti Dixit Madam, Geetika Singh Madam, Bhupendra Pandiya Sir.
-
 
 ## Credit
 Thanks to God. Thanks to All the Creator That I've Used his/her Application Like vim,g++,ubuntu OS,Tomcat and Windows 10 OS Thanks to Prafull Sir

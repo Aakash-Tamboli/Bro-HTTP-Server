@@ -1727,9 +1727,9 @@ return;
 }
 char *method,*requestURI,*httpVersion,*dataInRequest;
 requestBuffer[requestLength]='\0';
-// cout<<"DEBUGING: "<<endl;
-// cout<<requestBuffer<<endl;
-// cout<<"DEBUGING: "<<endl;
+cout<<"DEBUGING: "<<endl;
+cout<<requestBuffer<<endl;
+cout<<"DEBUGING: "<<endl;
 // code to parse the first line of the http request start here
 // first line should be REQUOEST_METHOD SPACE URI SPACE HTTPVERSIONCRLF
 method=requestBuffer;
@@ -1861,7 +1861,9 @@ return;
 // code to parse the header and then the payload if exist starts
 map<string,string> headerFieldsMap;
 HeaderUtility::parseHeader(requestBuffer+headerStartIndex,headerFieldsMap);
+
 // code to parse the header and then the payload if exist ends
+
 Request request(method,requestURI,httpVersion,dataInRequest,headerFieldsMap);
 while(true)
 {
@@ -1913,11 +1915,11 @@ try
 Bro bro;
 bro.setStaticResourcesFolder("static");
 bro.get("/",[](Request &request,Response &response){
-Cookie c1("name","Aakash");
-Cookie c2("RollNo","202");
-Cookie c3("City","Ujjain");
-response<<c1<<c2;
-response.addCookie(c3);
+// Cookie c1("name","Aakash");
+// Cookie c2("RollNo","202");
+// Cookie c3("City","Ujjain");
+// response<<c1<<c2;
+// response.addCookie(c3);
 response.setContentType("text/html");
 response<<R""""(
 <!DOCTYPE HTML>
@@ -1927,12 +1929,55 @@ response<<R""""(
 <title>Get Started</title>
 </head>
 <body>
-<a href='/aRequest'>Begin</a>
+<a href='/start'>Begin</a>
 </body>
 </html>
 )"""";
 });
 
+
+bro.get("/start",[](Request &request,Response &response){
+response<<R""""(
+<!DOCTYPE HTML>
+<html lan='en>
+<head>
+<meta charset='utf-8'>
+<title>Form</title>
+</head>
+<body>
+<form method='post' action='/saveData'>
+Name: &emsp;
+<input type='text' id='name' name='name'>
+City: &emsp;
+<input type='text' id='city' name='city'>
+<button type='submit'>Save</button>
+</form>
+</body>
+</html>
+)"""";
+response.setContentType("text/html");
+});
+
+bro.post("/saveData",[](Request &request,Response &response){
+cout<<request["name"]<<endl;
+cout<<request["city"]<<endl;
+response<<R""""(
+<!DOCTYPE HTML>
+<html lan='en'>
+<head>
+<meta charset='utf-8'>
+<title>Get Started</title>
+</head>
+<body>
+<a href='/'>Ok</a>
+</body>
+</html>
+)"""";
+response.setContentType("text/html");
+});
+
+
+/*
 
 bro.get("/aRequest",[](Request &request,Response &response){
 cout<<"Function got called for /aRequest"<<endl;
@@ -1972,6 +2017,8 @@ response<<R""""(
 </html>
 )"""";
 });
+
+*/
 
 bro.listen(5050,[](Error &error){
 if(error.hasError())

@@ -357,4 +357,5 @@ CMakeFiles/bro.dir/bro_template_engine.cpp.o: \
  /home/aakash/Bro-HTTP-Server/src/../include/bro_gmt_date_time.h \
  /home/aakash/Bro-HTTP-Server/src/../include/bro_utilities.h \
  /home/aakash/Bro-HTTP-Server/src/../include/bro_thread_wrapper.h \
- /home/aakash/Bro-HTTP-Server/src/../include/bro_file_system_utility.h
+ /home/aakash/Bro-HTTP-Server/src/../include/bro_file_system_utility.h \
+ /home/aakash/Bro-HTTP-Server/src/../include/bro_http_error_status_utility.h

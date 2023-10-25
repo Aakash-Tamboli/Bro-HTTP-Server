@@ -141,7 +141,7 @@ void requestProcessor(int clientSocketDescriptor, Bro *bro, BroThreadWrapper *p)
 
     if (urlMapping.requestMethod == __GET__ && strcmp(method, "get") != 0)
     {
-        HttpErrorStatusUtility::sendMethodNotAllowedError(clientSocketDescriptor, requestURI);
+        HttpErrorStatusUtility::sendMethodNotAllowedError(clientSocketDescriptor, method);
         close(clientSocketDescriptor);
         p->hasCompleted = true;
         return;

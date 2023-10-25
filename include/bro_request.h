@@ -47,8 +47,6 @@ public:
     string operator[](string);
     void forwardTo(string);
     string getCookieValue(string);
-    void getCookies(list<Cookie> &);
-    void getCookieNames(list<string> &);
     friend class Bro;
     friend void requestProcessor(int, Bro *, BroThreadWrapper *p);
 };

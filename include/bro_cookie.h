@@ -41,7 +41,6 @@ public:
     bool getSecure();
     void setHttpOnly(bool);
     bool getHttpOnly();
-    string stringify();
 };
 
 #endif

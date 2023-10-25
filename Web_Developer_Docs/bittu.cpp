@@ -6,61 +6,62 @@ try
 {
 Bro bro;
 bro.setStaticResourcesFolder("static");
+
 bro.get("/",[](Request &request,Response &response){
-const char *html=R""""(
+response.setContentType("text/html");
+response<<R""""(
 <!DOCTYPE HTML>
 <html lan='en'>
 <head>
 <meta charset='utf-8'>
-<title>Bro Server Home Page</title>
+<title>Get Started</title>
 </head>
 <body>
-<h1>>Bro Server Home Page</h1>
-<a href='/formWithGetType'>Form (Get Type)</a>
-<a href='/formWithPostType'>From (Post Type)</a>
+<a href='/start'>Begin</a>
 </body>
 </html>
 )"""";
-response.setContentType("text/html");
-response<<html;
 });
 
 
-bro.get("/formWithGetType",[](Request &request,Response &response){
-const char *html=R""""(
+bro.get("/start",[](Request &request,Response &response){
+response<<R""""(
 <!DOCTYPE HTML>
-<html lan='en'>
+<html lan='en>
 <head>
 <meta charset='utf-8'>
-<title>Form with Get</title>
+<title>Form</title>
 </head>
 <body>
-<h1>coming Soon</h1>
-<a href='/'>Coming Soon</a>
+<form method='post' action='/saveData'>
+Name: &emsp;
+<input type='text' id='name' name='name'>
+City: &emsp;
+<input type='text' id='city' name='city'>
+<button type='submit'>Save</button>
+</form>
 </body>
 </html>
 )"""";
 response.setContentType("text/html");
-response<<html;
 });
 
-bro.post("/formWithPostType",[](Request &request,Response &response){
-response.setContentType("text/html");
-const char *html=R""""(
+bro.get("/saveData",[](Request &request,Response &response){
+cout<<request["name"]<<endl;
+cout<<request["city"]<<endl;
+response<<R""""(
 <!DOCTYPE HTML>
 <html lan='en'>
 <head>
 <meta charset='utf-8'>
-<title></title>
+<title>Get Started</title>
 </head>
 <body>
-<h1>Coming Soon</h1>
-<a href='/'>Coming Soon</a>
+<a href='/'>Ok</a>
 </body>
 </html>
 )"""";
 response.setContentType("text/html");
-response<<html;
 });
 
 bro.listen(5050,[](Error &error){

@@ -14,8 +14,7 @@ private:
         char var_name[256];
     };
     static void createVMDFileName(const char *, char *);
-    static void createVMDFile(const char *, const char *);
-
+    static void createVMDFile(const char *, const char *,int);
 public:
     static void processCHTMLFile(const char *, Request &, int);
 };

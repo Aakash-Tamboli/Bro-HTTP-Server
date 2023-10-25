@@ -71,12 +71,3 @@ bool Cookie::getHttpOnly()
 {
     return this->isHttpOnly;
 }
-string Cookie::stringify()
-{
-    /*
-    Note:
-    if same site part is assigned None then secure needs to be added
-    Think logic of __Secure- or __Host- prefixed name part
-    */
-    return string("");
-}

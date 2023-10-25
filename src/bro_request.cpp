@@ -200,9 +200,3 @@ string Request::getCookieValue(string name)
     string value(startingPoint, endingPoint - startingPoint + 1);
     return value;
 }
-void Request::getCookies(list<Cookie> &cookies)
-{
-}
-void Request::getCookieNames(list<string> &cookieNames)
-{
-}

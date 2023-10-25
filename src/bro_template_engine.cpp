@@ -1,5 +1,5 @@
 #include <bro_template_engine.h>
-
+#include <bro_http_error_status_utility.h>
 void TemplateEngine::createVMDFileName(const char *chtmlFileName, char *vmdFileName)
 {
     char *dotPtr;
@@ -27,7 +27,7 @@ void TemplateEngine::createVMDFileName(const char *chtmlFileName, char *vmdFileN
     *vmdFileName = '\0';
     strcpy(dotPtr + 1, "vmd");
 }
-void TemplateEngine::createVMDFile(const char *chtmlFileName, const char *pathToVMDFile)
+void TemplateEngine::createVMDFile(const char *chtmlFileName, const char *pathToVMDFile,int clientSocketDescriptor)
 {
     long sp, ep;
     char var_name[256];
@@ -38,14 +38,14 @@ void TemplateEngine::createVMDFile(const char *chtmlFileName, const char *pathTo
     chtmlFile = fopen(chtmlFileName, "rb"); // rb mode for capturing each byte including \r\n(during pressing enter key) which is kept when somebody write .chtml using notepad
     if (chtmlFile == NULL)
     {
-        // code to sendBack 404 error
+	HttpErrorStatusUtility::sendNotFoundError(clientSocketDescriptor,chtmlFileName);
         return;
     }
     vmdFile = fopen(pathToVMDFile, "wb");
     if (vmdFile == NULL)
     {
-        // code to send back 500 internal server error
-        fclose(chtmlFile);
+        HttpErrorStatusUtility::sendInternalError(clientSocketDescriptor,chtmlFileName);
+	fclose(chtmlFile);
         return;
     }
     fseek(chtmlFile, 0, SEEK_END);
@@ -122,6 +122,7 @@ void TemplateEngine::createVMDFile(const char *chtmlFileName, const char *pathTo
     fclose(chtmlFile);
     fclose(vmdFile);
 }
+
 void TemplateEngine::processCHTMLFile(const char *chtmlFileName, Request &request, int clientSocketDescriptor)
 {
 
@@ -129,7 +130,8 @@ void TemplateEngine::processCHTMLFile(const char *chtmlFileName, Request &reques
     {
         if (!FileSystemUtility::createDirectory("vmd_files"))
         {
-            // I will implements later on
+            HttpErrorStatusUtility::sendInternalError(clientSocketDescriptor,chtmlFileName);
+            return;
         }
     }
     char vmdFileName[257];
@@ -150,7 +152,7 @@ void TemplateEngine::processCHTMLFile(const char *chtmlFileName, Request &reques
     }
     if (createVMDFile)
     {
-        createVMDFile(chtmlFileName, pathToVMDFile.c_str());
+        createVMDFile(chtmlFileName, pathToVMDFile.c_str(),clientSocketDescriptor);
     }
     // process the .chtml file pickup info from .vmd file
     // the code to calculate response Size starts here
