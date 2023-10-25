@@ -1,14 +1,15 @@
 #ifndef __BRO_HEADER_UTILITY__
 #define __BRO_HEADER_UTILITY__ 13
 
-#include<bro_global.h>
+#include <bro_global.h>
 
 class HeaderUtility
 {
 private:
-HeaderUtility();
+    HeaderUtility();
+
 public:
-static void parseHeader(const char *,map<string,string> &);
+    static void parseHeader(const char *, map<string, string> &);
 };
 
 #endif

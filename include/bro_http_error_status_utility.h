@@ -1,17 +1,17 @@
 #ifndef __BRO_HTTP_ERROR_STATUS_UTILITY__
 #define __BRO_HTTP_ERROR_STATUS_UTILITY__ 9
-#include<bro_global.h>
+#include <bro_global.h>
 
 class HttpErrorStatusUtility
 {
 private:
-HttpErrorStatusUtility();
+    HttpErrorStatusUtility();
+
 public:
-static void sendBadRequestError(int);
-static void sendHttpVersionNotSupportedError(int,char *);
-static void sendNotFoundError(int,char *);
-static void sendMethodNotAllowedError(int,char *);
+    static void sendBadRequestError(int);
+    static void sendHttpVersionNotSupportedError(int, char *);
+    static void sendNotFoundError(int, char *);
+    static void sendMethodNotAllowedError(int, char *);
 };
 
 #endif
-

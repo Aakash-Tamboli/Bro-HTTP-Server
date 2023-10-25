@@ -1,10 +1,15 @@
+## For Aakash
+So This Project Requirs Lot's of patience, So I stopped, But When you create HTTP Server in Java You Should Reffer this Doc and Make 
+
+
+
 # Bro Server DOCUMENTATION
 
 ## Overview
 here you get to know about `Bro HTTP Server`, which is built on `c++` programming language.
 
 ## Why Bro HTTP Server In C++ ?
-So In My view Engineeing is about to build, But Before Building First we have to understand How Existing things work internally, So That In future we can build on top of that, this project I Implemeted Network Programming or Socket Programming in C++ and Provide Ready Bro-Server for Web Application Developer, trying to mimic the behaviour of Tomcat like server.
+So In My view Engineeing is about to build, But Before Building First we have to understand How Existing things work internally, So That In future we can build on top of that Technology,In this project I Implemeted Network Programming or Socket Programming in C++ and Provide Ready Bro-Server for Web Application Developer, trying to mimic the behaviour of Tomcat like server.
 ## Deployment
 
 To deploy your Web-App using Bro-Server then folder structure must be followed like:

@@ -1,16 +1,17 @@
 #ifndef __BRO_ERROR__
 #define __BRO_ERROR__ 11
 
-#include<bro_global.h>
+#include <bro_global.h>
 
 class Error
 {
 private:
-string error;
+    string error;
+
 public:
-Error(string);
-bool hasError();
-string getError();
+    Error(string);
+    bool hasError();
+    string getError();
 };
 
 #endif

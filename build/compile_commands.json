@@ -1,0 +1,112 @@
+[
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_global.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_global.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_global.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_string_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_string_utility.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_string_utility.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_file_system_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_file_system_utility.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_file_system_utility.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_utilities.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_utilities.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_utilities.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_gmt_date_time.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_gmt_date_time.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_gmt_date_time.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_validator.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_validator.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_validator.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_http_error_status_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_http_error_status_utility.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_http_error_status_utility.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_error.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_error.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_error.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_cookie.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_cookie.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_cookie.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_header_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_header_utility.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_header_utility.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_request.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_request.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_request.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_response.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_response.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_response.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_http_response_utility.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_http_response_utility.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_http_response_utility.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_simple_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_simple_function.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_simple_function.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_application_level_container_dependent_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_function.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_function.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_simple_startup_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_simple_startup_function.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_simple_startup_function.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_application_level_container_dependent_startup_function.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_startup_function.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_application_level_container_dependent_startup_function.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_startup_function_comparator.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_startup_function_comparator.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_template_engine.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_template_engine.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_template_engine.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_container.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_container.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_container.cpp"
+},
+{
+  "directory": "/home/aakash/Bro-HTTP-Server/build",
+  "command": "/usr/bin/g++  -I/home/aakash/Bro-HTTP-Server/src/../include -g -o CMakeFiles/bro.dir/bro_request_processor.cpp.o -c /home/aakash/Bro-HTTP-Server/src/bro_request_processor.cpp",
+  "file": "/home/aakash/Bro-HTTP-Server/src/bro_request_processor.cpp"
+}
+]
