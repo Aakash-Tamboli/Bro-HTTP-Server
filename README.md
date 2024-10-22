@@ -1,77 +1,88 @@
-# Bro Server DOCUMENTATION
+# Bro Server Documentation
 
 ## Overview
-here you get to know about `Bro HTTP Server`, which is built on `c++` programming language.
+This document introduces the Bro HTTP Server, developed in C++.
 
-## Why Bro HTTP Server In C++ ?
-So In My view Engineeing is about to build, But Before Building First we have to understand How Existing things work internally, So That In future we can build on top of that Technology,In this project I Implemeted Network Programming or Socket Programming in C++ and Provide Ready Bro-Server for Web Application Developer, trying to mimic the behaviour of Tomcat like server.
+## Why Bro HTTP Server in C++?
+In my view Engineering is about building things on existing knowledge. Understanding how current technologies work allows us to innovate in the future. This project implements network programming (socket programming) in C++, providing a Bro Server that mimics the behavior of Tomcat for web application developers.
+
 ## Deployment
-
-To deploy your Web-App using Bro-Server then folder structure must be followed like:
-
-* Your web_app should contains bro-data and vmd_files folder which is already provided.
+To deploy your web app using Bro Server, follow this folder structure:
 
 ```
-Bro-HTTP-Server -- > Web_Developer_Docs
-                        |---> bro-data (Dependencies)
-			|---> vmd_files (Dependecies)
+Bro-HTTP-Server
+│
+├── Web_Developer_Docs
+│   ├── bro-data (Dependencies)
+│   └── vmd_files (Dependencies)
 ```
 
+Your `web_app` should include the `bro-data` and `vmd_files` folders.
 
 ## Demo
 
-```c
-#include<bro.h>
+Here’s a basic example of how to use the Bro HTTP Server:
+
+```cpp
+#include <bro.h>
 using namespace std;
-int main()
-{
-    try
-    {
+
+int main() {
+    try {
         Bro bro;
         bro.setStaticResourcesFolder("static");
-	bro.get("/url_pattern",[](Request &request,Response &response){
-		
+        
+        bro.get("/url_pattern", [](Request &request, Response &response) {
+            // Handle request
+        });
+        
+        bro.get("/url_pattern", [](Request &request, Response &response, ApplicationLevelContainer &container) {
+            // Handle request with container
+        });
 
-	});
-	bro.get("/url_pattern",[](Request &request,Response &response,ApplicationLevelContainer &container){
-		
-		
-	});
-
-        bro.listen(5050,[](Error &error){
-            if(error.hasError())
-            {
-                cout<<error.getError()<<endl;
+        bro.listen(5050, [](Error &error) {
+            if (error.hasError()) {
+                cout << error.getError() << endl;
                 return;
             }
-            cout<<"Bro HTTP Server is Ready to accept Request on port 5050"<<endl;
+            cout << "Bro HTTP Server is ready to accept requests on port 5050" << endl;
         });
-    }catch(string &exception)
-    {
-        cout<<exception;
+    } catch (string &exception) {
+        cout << exception;
     }
     return 0;
 }
 ```
-## To Compile
-I Assume You are in Web_Developer_Docs Folder, over-there bro-data and vmd_files is considered as dependencies folder so don't tempared or delete.
-the 
-`g++ fileName.cpp -o fileName.out -I ../include -L ../lib -l bro`
 
-## Feature
-Currenly Our Bro Server Provides Cookies,Dependieces Injection (Application Level container), Request Scope level conatiner,GET type request,... later on Will add more features
+## Compilation
 
+Assuming you are in the `Web_Developer_Docs` folder, where `bro-data` and `vmd_files` are located, compile with:
+
+```bash
+g++ fileName.cpp -o fileName.out -I ../include -L ../lib -l bro
+```
+
+## Features
+
+Currently, the Bro Server supports:
+- Cookies
+- Dependency Injection (Application Level Container)
+- Request Scope Level Container
+- GET requests
+
+More features will be added in the future.
 
 ## Examples
-Kindly Reffer Docs Folder, for specfic feature
 
+Refer to the `Docs` folder for specific feature examples.
 
-## Tool I've Used to Develop Bro Server
-1. Vim Text Editor
-2. G++ (7.5.0) (above C++17) Or Greater
-3. Ubuntu Operating System
-4. Windows 10
+## Development Tools
+
+- Vim Text Editor
+- G++ (7.5.0 or higher, C++17+)
+- Ubuntu Operating System
+- Windows 10
 
 ## Credit
-Thanks to God. Thanks to All the Creator That I've Used his/her Application Like vim,g++,ubuntu OS,Tomcat and Windows 10 OS.
 
+Thanks to God, Mom and kelkar Sir and Thanks to All the Creator That I've Used his/her Application Like vim,g++,ubuntu OS,Tomcat and Windows 10 OS.
