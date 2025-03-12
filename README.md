@@ -4,7 +4,11 @@
 This document introduces the Bro HTTP Server, developed in C++.
 
 ## Why Bro HTTP Server in C++?
-In my view, engineering is all about building something that solves real-life problems.Inorder to inovate new technologies we have to use current technologies effectively, which eventually opens the door to future innovation. This project demonstrates network programming a.k.a socket programming in C++, where a custom Bro Server is created to act like Tomcat,XAMPP etc which giving web developers a familiar and useful tool to enhance their work. It teach me a lot how network programming works
+In my view, engineering is about building solutions that address real-world problems. To drive innovation, we must first understand and utilize existing technologies effectively, which ultimately paves the way for future advancements.
+
+This project showcases network programming (socket programming) in C++, where I developed a custom Bro Server that functions similarly to Tomcat or XAMPP. The server provides web developers with a familiar and useful tool to streamline their work.
+
+Through this project, I gained deep insights into network communication, client-server interactions, and the fundamentals of how web servers operate. Moreover, I learned to troubleshoot and optimize network-based applications, which strengthened my problem-solving skills in system-level programming.
 
 ## Deployment
 To deploy your web app using Bro Server, follow this folder structure:
